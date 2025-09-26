@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{281e3e38-410a-434c-8461-00283eda3beb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{e1c32218-7f67-4597-9cc0-935cdfe248fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Targets">
+      <UniqueIdentifier>{15480782-75ad-487d-84c8-55771ac19185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Third_Party">
+      <UniqueIdentifier>{5927736d-aead-431f-96f4-ddbfafd0ba72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Tier 5">
+      <UniqueIdentifier>{b160aa6b-6d62-4c0e-ab76-6ed092e48d4e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ModuleManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="C3NT1P3D3.cpp" />
+    <ClCompile Include="MockTarget.cpp">
+      <Filter>Targets</Filter>
+    </ClCompile>
+    <ClCompile Include="EternalBlueDetector.cpp">
+      <Filter>Modules\Tier 5</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueKeepDetector.cpp">
+      <Filter>Modules\Tier 5</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IModule.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="MockTarget.h">
+      <Filter>Targets</Filter>
+    </ClInclude>
+    <ClInclude Include="EternalBlueDetector.h">
+      <Filter>Modules\Tier 5</Filter>
+    </ClInclude>
+    <ClInclude Include="IExploit.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
