@@ -29,13 +29,13 @@ ModuleResult BlueKeepDetector::run(const MockTarget& target) {
         // 1. Connecting to RDP port (3389)
         // 2. Sending specific packets to detect vulnerable Windows versions
         // 3. Checking for specific responses that indicate vulnerability
-        
+
         // For now, we'll simulate a basic check
         bool potentiallyVulnerable = false;
         std::string details = "RDP service detected on port 3389\n";
-        
+
         // Simulate some basic checks
-        if (target.id().find("windows") != std::string::npos || 
+        if (target.id().find("windows") != std::string::npos ||
             target.id().find("server") != std::string::npos) {
             potentiallyVulnerable = true;
             details += "Target appears to be Windows-based, potentially vulnerable to BlueKeep\n";
@@ -52,7 +52,8 @@ ModuleResult BlueKeepDetector::run(const MockTarget& target) {
                 Severity::Critical,
                 target.id()
             };
-        } else {
+        }
+        else {
             return ModuleResult{
                 "BlueKeepDetector",
                 false,

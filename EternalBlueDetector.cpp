@@ -811,9 +811,11 @@ ModuleResult EternalBlueDetector::run(const MockTarget& target) {
         Severity severity = Severity::Low;
         if (result.severity == ExploitSeverity::Medium) {
             severity = Severity::Medium;
-        } else if (result.severity == ExploitSeverity::High) {
+        }
+        else if (result.severity == ExploitSeverity::High) {
             severity = Severity::High;
-        } else if (result.severity == ExploitSeverity::Critical) {
+        }
+        else if (result.severity == ExploitSeverity::Critical) {
             severity = Severity::Critical;
         }
 
