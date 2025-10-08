@@ -20,6 +20,7 @@ void ModuleManager::runAll(const std::vector<MockTarget>& targets) {
             case Severity::Low: std::cout << "Low"; break;
             case Severity::Medium: std::cout << "Medium"; break;
             case Severity::High: std::cout << "High"; break;
+               case Severity::Critical: std::cout << "Critical"; break;
             }
             std::cout << "\n";
             std::cout << "Message: " << res.message << "\n";

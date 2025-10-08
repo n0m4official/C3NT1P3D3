@@ -8,7 +8,7 @@ enum class Severity {
     Low,
     Medium,
     High,
-	Critical
+       Critical
 };
 
 // Structure for module result

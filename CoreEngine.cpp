@@ -17,7 +17,7 @@ CoreEngine::CoreEngine(bool simulationOnly) : pImpl(new Impl())
 	std::time_t t = std::chrono::system_clock::to_time_t(now);
 
 	char buffer[26]; // ctime_s needs at least 26 chars
-	if (ctime_s(buffer, sizeof(buffer), &t) == 0) {
+	if (ctime_r(&t, buffer) != nullptr) {
 		pImpl->runId = std::string(buffer);
 		// remove trailing newline
 		if (!pImpl->runId.empty() && pImpl->runId.back() == '\n') {

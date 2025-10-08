@@ -1,3 +1,5 @@
+#include "EternalBlueDetector.h"
+#include "IModule.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -249,7 +251,7 @@ public:
     // Move assignment operator
     Socket& operator=(Socket&& other) noexcept {
         if (this != &other) {
-            close();
+            closeSocket();
             sock = other.sock;
             initialized = other.initialized;
             other.sock = INVALID_SOCKET_VALUE;
@@ -259,7 +261,7 @@ public:
 
     // Destructor - automatically closes socket
     ~Socket() {
-        close();
+        closeSocket();
 #ifdef _WIN32
         // No need to call WSACleanup() here as it would affect all sockets
 #endif
@@ -267,7 +269,7 @@ public:
 
     // Create socket
     bool create(int family, int type, int protocol) {
-        close();
+        closeSocket();
         sock = socket(family, type, protocol);
         return sock != INVALID_SOCKET_VALUE;
     }
@@ -335,7 +337,7 @@ public:
     }
 
     // Close socket
-    void close() {
+    void closeSocket() {
         if (sock != INVALID_SOCKET_VALUE) {
             CLOSE_SOCKET(sock);
             sock = INVALID_SOCKET_VALUE;
@@ -774,7 +776,75 @@ public:
     }
 };
 
-// Example usage
+// EternalBlueDetector implementation for the IModule interface
+ModuleResult EternalBlueDetector::run(const MockTarget& target) {
+    // Check if target has SMB service
+    if (!target.isServiceOpen("SMB")) {
+        return ModuleResult{
+            "EternalBlueDetector",
+            false,
+            "SMB service not available on target",
+            std::nullopt,
+            Severity::Low,
+            target.id()
+        };
+    }
+
+    // Create EternalBlueExploit instance
+    EternalBlueExploit exploit;
+    ScannerConfig config;
+    config.setDeepInspection(true);
+    config.setDetectOSVersion(true);
+    exploit.setConfig(config);
+
+    // Get target IP (use mock IP if available, otherwise use target ID)
+    std::string targetIp = target.id();
+    if (target.ip().has_value()) {
+        targetIp = target.ip().value();
+    }
+
+    try {
+        // Run the exploit scan
+        ExploitResult result = exploit.Run(targetIp);
+
+        // Convert ExploitResult to ModuleResult
+        Severity severity = Severity::Low;
+        if (result.severity == ExploitSeverity::Medium) {
+            severity = Severity::Medium;
+        } else if (result.severity == ExploitSeverity::High) {
+            severity = Severity::High;
+        } else if (result.severity == ExploitSeverity::Critical) {
+            severity = Severity::Critical;
+        }
+
+        std::optional<std::string> details = std::nullopt;
+        if (result.details) {
+            details = result.details->toString();
+        }
+
+        return ModuleResult{
+            "EternalBlueDetector",
+            result.success,
+            result.message,
+            details,
+            severity,
+            target.id()
+        };
+    }
+    catch (const std::exception& ex) {
+        return ModuleResult{
+            "EternalBlueDetector",
+            false,
+            std::string("Exception during scan: ") + ex.what(),
+            std::nullopt,
+            Severity::Low,
+            target.id()
+        };
+    }
+}
+
+// Example usage (commented out to avoid multiple main functions)
+/*
 int main(int argc, char* argv[]) {
     if (argc < 2) {
         std::cout << "Usage: " << argv[0] << " <target_ip_or_hostname> [connect_timeout_ms] [send_timeout_ms] [recv_timeout_ms]" << std::endl;
@@ -802,3 +872,4 @@ Scan Results:\
 
     return 0;
 }
+*/
