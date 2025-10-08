@@ -844,34 +844,3 @@ ModuleResult EternalBlueDetector::run(const MockTarget& target) {
         };
     }
 }
-
-// Example usage (commented out to avoid multiple main functions)
-/*
-int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cout << "Usage: " << argv[0] << " <target_ip_or_hostname> [connect_timeout_ms] [send_timeout_ms] [recv_timeout_ms]" << std::endl;
-        return 1;
-    }
-
-    std::string target = argv[1];
-
-    // Create scanner with custom configuration if provided
-    ScannerConfig config;
-    if (argc > 2) config.setConnectTimeout(std::stoi(argv[2]));
-    if (argc > 3) config.setSendTimeout(std::stoi(argv[3]));
-    if (argc > 4) config.setRecvTimeout(std::stoi(argv[4]));
-
-    EternalBlueExploit exploit;
-    exploit.setConfig(config);
-
-    std::cout << "Scanning " << target << " for " << exploit.Name() << " vulnerability..." << std::endl;
-
-    ExploitResult result = exploit.Run(target);
-
-    std::cout << "\
-Scan Results:\
-" << result.toString() << std::endl;
-
-    return 0;
-}
-*/
