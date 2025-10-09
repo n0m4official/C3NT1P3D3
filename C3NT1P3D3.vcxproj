@@ -130,17 +130,47 @@
     <ClCompile Include="BlueKeepDetector.cpp" />
     <ClCompile Include="C3NT1P3D3.cpp" />
     <ClCompile Include="CoreEngine.cpp" />
+    <ClCompile Include="DirectoryTraversalDetector.cpp" />
     <ClCompile Include="EternalBlueDetector.cpp" />
+    <ClCompile Include="FTPAnonymousDetector.cpp" />
+    <ClCompile Include="HeartbleedDetector.cpp" />
+    <ClCompile Include="Log4ShellDetector.cpp" />
     <ClCompile Include="MockTarget.cpp" />
     <ClCompile Include="ModuleManager.cpp" />
+    <ClCompile Include="NetworkScanner.cpp" />
+    <ClCompile Include="SafeScanner.cpp" />
+    <ClCompile Include="ShellshockDetector.cpp" />
+    <ClCompile Include="SQLInjectionDetector.cpp" />
+    <ClCompile Include="SSHBruteForceDetector.cpp" />
+    <ClCompile Include="XSSDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlueKeepDetector.h" />
     <ClInclude Include="CoreEngine.h" />
+    <ClInclude Include="DirectoryTraversalDetector.h" />
     <ClInclude Include="EternalBlueDetector.h" />
+    <ClInclude Include="FTPAnonymousDetector.h" />
+    <ClInclude Include="HeartbleedDetector.h" />
     <ClInclude Include="IExploit.h" />
     <ClInclude Include="IModule.h" />
+    <ClInclude Include="Log4ShellDetector.h" />
     <ClInclude Include="MockTarget.h" />
     <ClInclude Include="ModuleManager.h" />
+    <ClInclude Include="NetworkScanner.h" />
+    <ClInclude Include="ShellshockDetector.h" />
+    <ClInclude Include="SQLInjectionDetector.h" />
+    <ClInclude Include="SSHBruteForceDetector.h" />
+    <ClInclude Include="XSSDetector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="PROJECT_SUMMARY.md" />
+    <None Include="README.md" />
+    <None Include="todo.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

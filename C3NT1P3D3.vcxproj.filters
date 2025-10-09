@@ -34,6 +34,16 @@
     <ClCompile Include="BlueKeepDetector.cpp">
       <Filter>Modules\Tier 5</Filter>
     </ClCompile>
+    <ClCompile Include="DirectoryTraversalDetector.cpp" />
+    <ClCompile Include="FTPAnonymousDetector.cpp" />
+    <ClCompile Include="HeartbleedDetector.cpp" />
+    <ClCompile Include="Log4ShellDetector.cpp" />
+    <ClCompile Include="NetworkScanner.cpp" />
+    <ClCompile Include="SafeScanner.cpp" />
+    <ClCompile Include="ShellshockDetector.cpp" />
+    <ClCompile Include="SQLInjectionDetector.cpp" />
+    <ClCompile Include="SSHBruteForceDetector.cpp" />
+    <ClCompile Include="XSSDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IModule.h">
@@ -54,5 +64,25 @@
     <ClInclude Include="IExploit.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="BlueKeepDetector.h" />
+    <ClInclude Include="HeartbleedDetector.h" />
+    <ClInclude Include="ShellshockDetector.h" />
+    <ClInclude Include="SQLInjectionDetector.h" />
+    <ClInclude Include="SSHBruteForceDetector.h" />
+    <ClInclude Include="DirectoryTraversalDetector.h" />
+    <ClInclude Include="FTPAnonymousDetector.h" />
+    <ClInclude Include="Log4ShellDetector.h" />
+    <ClInclude Include="NetworkScanner.h" />
+    <ClInclude Include="XSSDetector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="PROJECT_SUMMARY.md" />
+    <None Include="todo.md" />
+    <None Include=".gitignore" />
+    <None Include=".gitattributes" />
   </ItemGroup>
 </Project>
