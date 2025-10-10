@@ -1,106 +1,79 @@
-cmake_minimum_required(VERSION 3.10)
-project(C3NT1P3D3 VERSION 1.0.0 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.16)
+project(C3NT1P3D3 VERSION 2.0.0)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Add compiler warnings
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    add_compile_options(-Wall -Wextra -Wpedantic -Werror)
-elseif(MSVC)
-    add_compile_options(/W4 /WX)
+# Build type
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
 endif()
 
-# Platform-specific settings
-if(WIN32)
-    add_definitions(-D_WIN32_WINNT=0x0601) # Windows 7 and later
-    set(PLATFORM_LIBS ws2_32)
-else()
-    set(PLATFORM_LIBS pthread)
-endif()
+# Compiler flags
+set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -O0")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 
-# Source files
-set(SOURCES
-    C3NT1P3D3.cpp
-    EternalBlueDetector.cpp
-    BlueKeepDetector.cpp
-    HeartbleedDetector.cpp
-    ShellshockDetector.cpp
-    SSHBruteForceDetector.cpp
-    SQLInjectionDetector.cpp
-    Log4ShellDetector.cpp
-    XSSDetector.cpp
-    FTPAnonymousDetector.cpp
-    DirectoryTraversalDetector.cpp
-    NetworkScanner.cpp
-    MockTarget.cpp
-    CoreEngine.cpp
-    ModuleManager.cpp
-)
-
-# Header files
-set(HEADERS
-    IModule.h
-    EternalBlueDetector.h
-    BlueKeepDetector.h
-    HeartbleedDetector.h
-    ShellshockDetector.h
-    SSHBruteForceDetector.h
-    SQLInjectionDetector.h
-    Log4ShellDetector.h
-    XSSDetector.h
-    FTPAnonymousDetector.h
-    DirectoryTraversalDetector.h
-    NetworkScanner.h
-    MockTarget.h
-    CoreEngine.h
-    ModuleManager.h
-    IExploit.h
-)
-
-# Create executables
-add_executable(C3NT1P3D3 ${SOURCES})
-add_executable(SafeScanner 
-    SafeScanner.cpp
-    NetworkScanner.cpp
-    ModuleManager.cpp
-    MockTarget.cpp
-    CoreEngine.cpp
-    EternalBlueDetector.cpp
-    BlueKeepDetector.cpp
-    HeartbleedDetector.cpp
-    ShellshockDetector.cpp
-    SSHBruteForceDetector.cpp
-    SQLInjectionDetector.cpp
-    Log4ShellDetector.cpp
-    XSSDetector.cpp
-    FTPAnonymousDetector.cpp
-    DirectoryTraversalDetector.cpp
-)
-
-# Link platform-specific libraries
-target_link_libraries(C3NT1P3D3 ${PLATFORM_LIBS})
-target_link_libraries(SafeScanner ${PLATFORM_LIBS})
+# Find required packages
+find_package(Threads REQUIRED)
 
 # Include directories
-target_include_directories(C3NT1P3D3 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories(SafeScanner PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(include)
 
-# Install target
-install(TARGETS C3NT1P3D3 DESTINATION bin)
+# Source files
+set(CORE_SOURCES
+    src/VulnerabilityDatabase.cpp
+    src/IPRangeValidator.cpp
+    src/VulnerabilityDatabaseExtended.cpp
+    src/EnterpriseScanner.cpp
+)
 
-# Install headers
-install(FILES ${HEADERS} DESTINATION include/C3NT1P3D3)
+set(DETECTOR_SOURCES
+    src/BlueKeepDetector.cpp
+    src/CoreEngine.cpp
+    src/DirectoryTraversalDetector.cpp
+    src/EternalBlueDetector.cpp
+    src/FTPAnonymousDetector.cpp
+    src/HeartbleedDetector.cpp
+    src/Log4ShellDetector.cpp
+    src/MockTarget.cpp
+    src/ModuleManager.cpp
+    src/NetworkScanner.cpp
+    src/SQLInjectionDetector.cpp
+    src/SSHBruteForceDetector.cpp
+    src/ShellshockDetector.cpp
+    src/XSSDetector.cpp
+)
 
-# Create a simple test target
+# Original scanner (legacy)
+add_executable(C3NT1P3D3
+    src/C3NT1P3D3.cpp
+    ${DETECTOR_SOURCES}
+)
+
+# Enterprise scanner (legitimate)
+add_executable(C3NT1P3D3-Enterprise
+    src/C3NT1P3D3-Comprehensive.cpp
+    ${DETECTOR_SOURCES}
+    ${CORE_SOURCES}
+)
+
+# Enterprise demo
+add_executable(demo_enterprise_scanner demo_enterprise_scanner.cpp)
+target_link_libraries(demo_enterprise_scanner ${CMAKE_THREAD_LIBS_INIT})
+
+# Link libraries
+target_link_libraries(C3NT1P3D3 Threads::Threads)
+target_link_libraries(C3NT1P3D3-Enterprise Threads::Threads)
+
+# Compiler-specific options
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(C3NT1P3D3 PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(C3NT1P3D3-Enterprise PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+# Testing
 enable_testing()
-add_test(NAME BasicTest COMMAND C3NT1P3D3)
-
-# Package configuration
-set(CPACK_PACKAGE_NAME "C3NT1P3D3")
-set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Advanced Vulnerability Scanner")
-set(CPACK_PACKAGE_VENDOR "C3NT1P3D3 Team")
-include(CPack)
+add_executable(test_ip_validator tests/test_ip_validator.cpp src/IPRangeValidator.cpp)
+target_link_libraries(test_ip_validator Threads::Threads)
+add_test(NAME IPRangeValidatorTest COMMAND test_ip_validator)
