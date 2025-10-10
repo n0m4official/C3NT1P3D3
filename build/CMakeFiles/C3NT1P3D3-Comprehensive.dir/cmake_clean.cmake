@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "C3NT1P3D3-Comprehensive"
+  "C3NT1P3D3-Comprehensive.pdb"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/BlueKeepDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/BlueKeepDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/C3NT1P3D3-Comprehensive.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/C3NT1P3D3-Comprehensive.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/CoreEngine.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/CoreEngine.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/DirectoryTraversalDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/DirectoryTraversalDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/EternalBlueDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/EternalBlueDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/FTPAnonymousDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/FTPAnonymousDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/HeartbleedDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/HeartbleedDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/IPRangeValidator.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/IPRangeValidator.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/Log4ShellDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/Log4ShellDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/MockTarget.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/MockTarget.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/ModuleManager.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/ModuleManager.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/NetworkScanner.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/NetworkScanner.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/SQLInjectionDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/SQLInjectionDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/SSHBruteForceDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/SSHBruteForceDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/ShellshockDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/ShellshockDetector.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/VulnerabilityDatabase.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/VulnerabilityDatabase.cpp.o.d"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/XSSDetector.cpp.o"
+  "CMakeFiles/C3NT1P3D3-Comprehensive.dir/src/XSSDetector.cpp.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/C3NT1P3D3-Comprehensive.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
