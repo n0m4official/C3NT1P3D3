@@ -1,262 +1,313 @@
-# C3NT1P3D3 - Advanced Vulnerability Scanner
+# 🛡️ C3NT1P3D3 Comprehensive Security Scanner v2.0
 
-## 🛡️ SAFETY-FIRST SECURITY SCANNER
+**The Ultimate Safety-First Vulnerability Detection Platform**
 
-**C3NT1P3D3** is a comprehensive vulnerability scanner designed with safety as the primary concern. It performs **detection-only** scanning with **no exploit execution**, ensuring your network remains safe while identifying potential security issues.
+## 🎯 Mission Statement
 
-## 🔒 SAFETY GUARANTEES
+C3NT1P3D3 is a comprehensive security vulnerability scanner designed with **safety-first principles** to detect vulnerabilities across **all major attack vectors** while maintaining **strict IP range controls** to prevent malicious use.
+
+## 🔒 Safety-First Design Philosophy
 
 ### Core Safety Principles
-- **Detection Only**: Never executes exploits or harmful actions
-- **Read-Only Operations**: All interactions are safe and non-invasive
-- **IP Range Restrictions**: Only scans explicitly allowed network ranges
-- **Private Networks Only**: Default configuration blocks public IP scanning
-- **Simulation Mode**: Operates in safe simulation mode by default
-- **User Confirmation**: Requires explicit approval for real network interaction
+- **Detection-Only Methodology**: Never executes exploits or harmful actions
+- **IP Range Restrictions**: Only scans explicitly authorized networks
+- **Explicit User Approval**: Requires confirmation for public IP scanning
+- **Private Network Protection**: Default allowlist for safe IP ranges
+- **Comprehensive Audit Trail**: All activities logged and monitored
+- **Emergency Stop Controls**: Immediate scan termination capabilities
 
-### Safety Features
-✅ **No Exploit Execution** - Purely detects vulnerabilities without exploiting them  
-✅ **Network Range Validation** - Prevents scanning outside authorized ranges  
-✅ **Private Network Protection** - Default allowlist: 192.168.x.x, 10.x.x.x, 172.16-31.x.x  
-✅ **Simulation Mode** - Safe, non-invasive scanning by default  
-✅ **Audit Trail** - Comprehensive logging of all scan activities  
-✅ **Emergency Stop** - Immediate scan termination capabilities  
+### IP Range Safety System
+```
+✅ Automatically Allowed: RFC 1918 Private Networks
+   - 10.0.0.0/8     (Private Class A)
+   - 172.16.0.0/12  (Private Class B) 
+   - 192.168.0.0/16 (Private Class C)
+   - 127.0.0.0/8    (Loopback)
+   - 169.254.0.0/16 (Link-local)
 
-## 🚀 QUICK START
-
-### Safe Network Scanning
-```bash
-# Show safety configuration
-./SafeScanner --safety-report
-
-# Scan a specific network range (safe simulation mode)
-./SafeScanner --network 192.168.1.0/24
-
-# Add custom allowed range and scan
-./SafeScanner --allow-range 10.0.0.0/24 --network 10.0.0.0/24
-
-# Enable real scanning (requires confirmation)
-echo "yes" | ./SafeScanner --network 192.168.1.0/24 --simulation-off
+⚠️  Requires Explicit Approval:
+   - Public Internet IPs
+   - Government IP ranges
+   - Military networks
+   - Critical infrastructure
 ```
 
-## 📋 VULNERABILITY DETECTION MODULES
+## 🚀 Comprehensive Vulnerability Detection
 
-### Critical Vulnerabilities
-- **EternalBlue (MS17-010)** - SMB vulnerability that enabled WannaCry
-- **BlueKeep (CVE-2019-0708)** - RDP vulnerability affecting Windows systems
-- **Heartbleed (CVE-2014-0160)** - OpenSSL memory disclosure vulnerability
-- **Shellshock (CVE-2014-6271)** - Bash command injection vulnerability
-- **Log4Shell (CVE-2021-44228)** - Log4j JNDI injection vulnerability
+### Web Application Security (OWASP Top 10 + Advanced)
+- **SQL Injection** - Database vulnerability detection
+- **Cross-Site Scripting (XSS)** - Reflected, Stored, DOM-based
+- **Cross-Site Request Forgery (CSRF)** - Session manipulation
+- **Broken Access Control** - Authorization bypass
+- **Security Misconfiguration** - Insecure settings
+- **Sensitive Data Exposure** - Information disclosure
+- **Insufficient Logging** - Monitoring gaps
+- **Local File Inclusion (LFI)** - File system access
+- **Remote File Inclusion (RFI)** - External file execution
+- **XML External Entity (XXE)** - XML injection
+- **Server-Side Template Injection (SSTI)** - Template vulnerabilities
+- **Insecure Direct Object References (IDOR)** - Object manipulation
+- **Path Traversal** - Directory traversal attacks
+- **Command Injection** - OS command execution
+- **LDAP Injection** - Directory service attacks
+- **XPath Injection** - XML path manipulation
+- **Host Header Injection** - Header manipulation
 
-### Network Security
-- **SSH Brute Force Detection** - Weak SSH configurations
+### Network Security Vulnerabilities
+- **EternalBlue (MS17-010)** - SMB remote code execution
+- **BlueKeep (CVE-2019-0708)** - RDP remote code execution
+- **Heartbleed (CVE-2014-0160)** - OpenSSL memory disclosure
+- **Shellshock (CVE-2014-6271)** - Bash command injection
+- **Log4Shell (CVE-2021-44228)** - Log4j JNDI injection
+- **SSH Weak Authentication** - Weak SSH configurations
 - **FTP Anonymous Access** - Unsecured FTP services
+- **DNS Misconfiguration** - DNS security issues
+- **SNMP Weak Community** - SNMP security problems
+- **Telnet Cleartext** - Unencrypted communications
+- **SMB Vulnerabilities** - Server message block issues
+- **RDP Vulnerabilities** - Remote desktop issues
+- **TCP/UDP Vulnerabilities** - Protocol-level issues
+- **Network Infrastructure** - Router, switch, firewall issues
+- **Wireless Security** - WEP, WPA weaknesses
+- **IoT Device Vulnerabilities** - Internet of Things security
 
-### Web Application Security
-- **SQL Injection Detection** - Database vulnerability identification
-- **XSS (Cross-Site Scripting)** - Client-side script injection
-- **Directory Traversal** - File system access vulnerabilities
+### SSL/TLS Security
+- **Weak SSL Versions** - SSLv2, SSLv3, TLSv1.0
+- **Weak Cipher Suites** - Insecure encryption algorithms
+- **Certificate Issues** - Invalid, expired, self-signed
+- **Heartbleed** - Memory disclosure vulnerability
+- **POODLE** - Padding oracle attack
+- **BEAST** - Browser exploit against SSL/TLS
+- **CRIME** - Compression ratio info leak
+- **BREACH** - Browser reconnaissance exfiltration
 
-## 🏗️ BUILD INSTRUCTIONS
+### Database Security
+- **MySQL Weak Passwords** - Weak authentication
+- **PostgreSQL Issues** - Configuration problems
+- **MongoDB Unauthenticated** - No authentication
+- **Redis Unauthenticated** - Open access
+- **Elasticsearch Issues** - Search engine vulnerabilities
 
-### Requirements
-- C++17 compatible compiler
-- CMake 3.10+
-- Linux/Unix environment (Windows support available)
+### Cloud & Container Security
+- **AWS S3 Public Buckets** - Exposed storage
+- **AWS IAM Misconfiguration** - Access control issues
+- **Kubernetes Misconfiguration** - Orchestration issues
+- **Docker API Exposed** - Container vulnerabilities
+- **Kubernetes API Issues** - Cluster security
 
-### Build Process
+### Operating System Vulnerabilities
+- **Spectre/Meltdown** - CPU vulnerabilities
+- **Dirty COW** - Privilege escalation
+- **GHOST** - Glibc vulnerability
+- **Various CVEs** - Operating system specific
+
+## 📋 Installation & Usage
+
+### Quick Start
 ```bash
 # Clone the repository
 git clone https://github.com/n0m4official/C3NT1P3D3.git
 cd C3NT1P3D3
 
-# Create build directory
+# Build the scanner
 mkdir build && cd build
-
-# Configure with CMake
 cmake ..
+make -j$(nproc)
 
-# Build the project
-make
+# Run comprehensive scan
+./C3NT1P3D3-Comprehensive 192.168.1.0/24 --output results.json
 
-# Run tests
-make test
+# Run web-only scan
+./C3NT1P3D3-Comprehensive 10.0.0.0/8 --web-only --rate-limit 50
+
+# Run network-only scan  
+./C3NT1P3D3-Comprehensive 172.16.0.0/12 --network-only --threads 20
 ```
 
-### Build Outputs
-- `C3NT1P3D3` - Original vulnerability scanner
-- `SafeScanner` - Safety-enhanced network scanner
+### Command Line Options
+```
+Usage: C3NT1P3D3-Comprehensive <target_range> [options]
 
-## 🎯 USAGE EXAMPLES
+Target Range:
+  192.168.1.0/24    Scan private network
+  10.0.0.0/8        Scan Class A private network
+  172.16.0.0/12     Scan Class B private network
 
-### Basic Network Discovery
+Options:
+  --output FILE     Save results to file (JSON/XML/TXT)
+  --web-only        Scan only web vulnerabilities
+  --network-only    Scan only network vulnerabilities
+  --rate-limit N    Limit requests per second (default: 100)
+  --threads N       Number of scanning threads (default: 10)
+  --timeout N       Connection timeout in seconds (default: 30)
+  --no-strict       Disable strict mode (NOT RECOMMENDED)
+  --verbose         Enable verbose logging
+  --help            Show detailed help
+```
+
+## 🔧 Advanced Configuration
+
+### Safety Configuration
+```json
+{
+  "safety": {
+    "strict_mode": true,
+    "require_explicit_approval": true,
+    "max_scan_duration": 3600,
+    "rate_limiting": {
+      "requests_per_second": 100,
+      "burst_limit": 200
+    },
+    "allowed_ranges": [
+      "192.168.0.0/16",
+      "10.0.0.0/8",
+      "172.16.0.0/12"
+    ],
+    "blocked_ranges": [
+      "0.0.0.0/8",
+      "224.0.0.0/4",
+      "240.0.0.0/4"
+    ]
+  }
+}
+```
+
+### Scan Configuration
+```json
+{
+  "scanning": {
+    "enable_web_scanning": true,
+    "enable_network_scanning": true,
+    "enable_ssl_scanning": true,
+    "enable_database_scanning": false,
+    "enable_cloud_scanning": false,
+    "enable_iot_scanning": true,
+    "thread_count": 10,
+    "timeout_seconds": 30,
+    "save_intermediate_results": true
+  }
+}
+```
+
+## 📊 Output Formats
+
+### JSON Output
+```json
+{
+  "scan_id": "C3NT1P3D3-20241201-143022",
+  "target_range": "192.168.1.0/24",
+  "start_time": "2024-12-01 14:30:22 UTC",
+  "end_time": "2024-12-01 14:35:45 UTC",
+  "status": "COMPLETED",
+  "summary": {
+    "total_targets": 15,
+    "total_vulnerabilities": 23,
+    "critical": 2,
+    "high": 5,
+    "medium": 10,
+    "low": 4,
+    "info": 2
+  },
+  "vulnerabilities": [
+    {
+      "target": "192.168.1.100",
+      "port": 80,
+      "vulnerability": "SQL Injection",
+      "severity": "HIGH",
+      "cve": "CVE-2023-XXXX",
+      "evidence": "Parameter 'id' vulnerable to SQL injection",
+      "remediation": "Use parameterized queries"
+    }
+  ]
+}
+```
+
+### XML Output
+```xml
+<scan_report>
+  <scan_id>C3NT1P3D3-20241201-143022</scan_id>
+  <target_range>192.168.1.0/24</target_range>
+  <start_time>2024-12-01 14:30:22 UTC</start_time>
+  <end_time>2024-12-01 14:35:45 UTC</end_time>
+  <status>COMPLETED</status>
+  <summary>
+    <total_targets>15</total_targets>
+    <total_vulnerabilities>23</total_vulnerabilities>
+    <critical>2</critical>
+    <high>5</high>
+    <medium>10</medium>
+    <low>4</low>
+    <info>2</info>
+  </summary>
+</scan_report>
+```
+
+## 🛡️ Safety Features
+
+### IP Range Validation
+- **Automatic Validation**: All IP ranges validated before scanning
+- **Private Network Protection**: Only RFC 1918 private networks by default
+- **Public IP Approval**: Explicit confirmation required for public internet IPs
+- **Range Boundary Enforcement**: Strict subnet boundary checking
+- **Real-time Monitoring**: All IP access logged and monitored
+
+### Scanning Safety
+- **Read-only Operations**: No system modifications or exploits
+- **Rate Limiting**: Prevents network overload
+- **Timeout Controls**: Connection timeouts to prevent hanging
+- **Thread Limits**: Controlled concurrent scanning
+- **Emergency Stop**: Immediate scan termination capability
+
+### Audit & Compliance
+- **Comprehensive Logging**: All activities recorded
+- **Audit Trail**: Complete scan history maintained
+- **Compliance Reporting**: Security assessment reports
+- **Permission Tracking**: Authorization confirmations logged
+- **Result Integrity**: Cryptographic verification of results
+
+## 🚨 Emergency Procedures
+
+### Stop Scan Immediately
 ```bash
-# Discover devices in your home network
-./SafeScanner --network 192.168.1.0/24
-
-# Scan corporate network segment
-./SafeScanner --network 10.0.0.0/24
-
-# Add specific office network
-./SafeScanner --allow-range 172.16.10.0/24 --network 172.16.10.0/24
+# Press Ctrl+C during scan for immediate termination
+# The scanner will safely clean up and exit
 ```
 
-### Advanced Configuration
-```bash
-# Multiple network ranges
-./SafeScanner \
-  --allow-range 192.168.1.0/24 \
-  --allow-range 10.0.0.0/24 \
-  --network 192.168.1.0/24
+### Report Safety Issues
+If you discover any safety vulnerabilities or potential misuse:
+1. **Stop using the scanner immediately**
+2. **Document the issue** with detailed steps
+3. **Contact security team**: security@c3nt1p3d3.com
+4. **Do not disclose publicly** until fixed
 
-# Custom IP range (192.168.1.100-192.168.1.200)
-./SafeScanner --network 192.168.1.100-192.168.1.200
-```
+## 📞 Support & Community
 
-### Safety Verification
-```bash
-# Always check safety configuration first
-./SafeScanner --safety-report
+### Getting Help
+- **Documentation**: See `docs/` directory
+- **Issues**: GitHub Issues page
+- **Discussions**: GitHub Discussions
+- **Security**: security@c3nt1p3d3.com
 
-# Verify allowed ranges before scanning
-./SafeScanner --allow-range 192.168.1.0/24 --safety-report
-```
+### Contributing
+1. Fork the repository
+2. Create feature branch
+3. Implement safety-first changes
+4. Add comprehensive tests
+5. Submit pull request
 
-## 🔧 CONFIGURATION
-
-### Network Ranges
-The scanner supports multiple IP range formats:
-- **CIDR Notation**: `192.168.1.0/24`
-- **IP Range**: `192.168.1.1-192.168.1.254`
-- **Single IP**: `192.168.1.100`
-
-### Default Allowed Ranges
-- `192.168.0.0/16` - Private Class C networks
-- `10.0.0.0/8` - Private Class A networks  
-- `172.16.0.0/12` - Private Class B networks
-
-### Custom Configuration
-```bash
-# Override default ranges
-./SafeScanner \
-  --allow-range 192.168.1.0/24 \
-  --allow-range 10.0.0.0/16 \
-  --network 192.168.1.0/24
-```
-
-## 🚨 SAFETY PROTOCOLS
-
-### Pre-Scan Safety Checklist
-1. ✅ **Verify Network Range** - Ensure you're scanning authorized networks only
-2. ✅ **Check Permissions** - Confirm you have permission to scan the target network
-3. ✅ **Review Safety Report** - Run `./SafeScanner --safety-report`
-4. ✅ **Test Simulation Mode** - Default behavior is safe simulation
-5. ✅ **Confirm Real Scanning** - Explicit "yes" required for real network interaction
-
-### During Scan Safety
-- **Real-time Monitoring** - All activities are logged and monitored
-- **Safe Payloads Only** - No dangerous or invasive techniques used
-- **Immediate Termination** - Scan can be stopped at any time
-- **No System Modification** - Read-only operations guarantee
-
-### Post-Scan Safety
-- **Comprehensive Reporting** - Detailed results with safety confirmations
-- **No Persistent Changes** - No modifications to scanned systems
-- **Audit Trail** - Complete log of all scan activities
-
-## 📊 SCAN RESULTS
-
-### Result Format
-```
-Module: BlueKeepDetector
-Target: windows-server (192.168.1.100)
-Success: Yes
-Severity: Critical
-Message: Target potentially vulnerable to BlueKeep (CVE-2019-0708)
-Details: RDP service detected on port 3389
-Target appears to be Windows-based, potentially vulnerable to BlueKeep
-Affected versions: Windows 7, Windows Server 2008 R2, Windows Server 2008
-CVE-2019-0708 allows remote code execution without authentication
-```
-
-### Severity Levels
-- **Critical** - Immediate attention required
-- **High** - Significant security risk
-- **Medium** - Moderate security concern
-- **Low** - Minor issue or informational
-
-## 🛠️ DEVELOPMENT
-
-### Adding New Modules
-1. Create header file inheriting from `IModule`
-2. Implement detection logic (detection only, no exploitation)
-3. Register module in `SafeScanner.cpp`
-4. Update CMakeLists.txt
-5. Test thoroughly in simulation mode
-
-### Safety Guidelines for Developers
-- **Never Execute Exploits** - Detection only, always
-- **Validate All Inputs** - Strict input validation for IP ranges
-- **Safe Defaults** - Conservative, safe default settings
-- **Comprehensive Logging** - Log all activities for audit
-- **Fail-Safe Design** - Fail securely, never dangerously
-
-## 🔍 TROUBLESHOOTING
-
-### Common Issues
-```bash
-# Range not allowed error
-./SafeScanner --network 192.168.1.0/24
-# Error: Network range not in allowed ranges
-# Solution: Add the range first
-./SafeScanner --allow-range 192.168.1.0/24 --network 192.168.1.0/24
-
-# Permission denied for real scanning
-# Solution: Confirm with "yes" when prompted
-echo "yes" | ./SafeScanner --network 192.168.1.0/24 --simulation-off
-```
-
-### Safety Errors
-- **"Dangerous IP range detected"** - You're trying to scan public/reserved IPs
-- **"Network range not allowed"** - Add the range to allowed list first
-- **"No allowed IP ranges configured"** - Configure at least one allowed range
-
-## 📚 SECURITY CONSIDERATIONS
-
-### Legal Compliance
-- **Authorization Required** - Only scan networks you own or have permission to scan
-- **Privacy Protection** - Respect privacy and data protection regulations
-- **Responsible Disclosure** - Report findings through appropriate channels
-
-### Ethical Usage
-- **Permission First** - Always obtain proper authorization before scanning
-- **Minimal Impact** - Use least invasive methods possible
-- **Responsible Reporting** - Share findings responsibly and constructively
-
-## 🤝 CONTRIBUTING
-
-### Safety-First Development
-1. **Safety Review** - All contributions must pass safety review
-2. **Detection Only** - No exploit code will be accepted
-3. **Comprehensive Testing** - Thorough testing in simulation mode required
-4. **Documentation** - Update safety documentation for all changes
-
-### Code Standards
-- Follow safety-first principles
-- Maintain comprehensive error handling
-- Include detailed safety comments
-- Test extensively before submission
-
-## 📄 LICENSE
-
-This project is designed for legitimate security testing and research purposes only. Users are responsible for ensuring compliance with all applicable laws and regulations.
-
-## ⚠️ DISCLAIMER
-
-**C3NT1P3D3 is designed for authorized security testing only.**  
-**Misuse of this tool may violate applicable laws.**  
-**Always obtain proper authorization before scanning any network.**
+### License
+This project is licensed under the MIT License with additional safety requirements.
 
 ---
 
-**🔒 Remember: Safety First, Security Always**
+## ⚠️ LEGAL DISCLAIMER
+
+**IMPORTANT**: This scanner is designed for **authorized security testing only**. 
+
+- **You must have explicit permission** to scan any network
+- **Unauthorized scanning is illegal** and may result in criminal charges
+- **Use only on networks you own or have written permission to test**
+- **The authors are not responsible** for misuse or illegal activities
+- **By using this tool, you accept full responsibility** for your actions
+
+**Remember**: With great scanning power comes great responsibility. Always scan ethically and legally.
