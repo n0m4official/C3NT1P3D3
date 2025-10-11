@@ -8,6 +8,17 @@
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/n0m4official/C3NT1P3D3)
 [![Modules](https://img.shields.io/badge/modules-30-success.svg)](https://github.com/n0m4official/C3NT1P3D3)
+---
+
+## 🎓 Educational & Research Purpose
+
+This is a **security research and educational framework**. It demonstrates vulnerability detection techniques for:
+- Security students and researchers
+- Penetration testing professionals
+- Security tool developers
+- Academic research
+
+**Status:** Framework release - Core detection modules complete, CLI integration in progress (v3.1.0)
 
 ---
 
