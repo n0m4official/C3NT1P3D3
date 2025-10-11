@@ -2,11 +2,12 @@
 #define CONFIGURATION_MANAGER_H
 
 #include <string>
+#include <vector>
 #include <map>
 #include <memory>
 #include <mutex>
 #include <fstream>
-#include <json/json.h>
+// #include <json/json.h>  // JsonCpp not installed - comment out for now
 
 namespace C3NT1P3D3 {
 

@@ -63,8 +63,9 @@ public:
 
 private:
     IPRangeValidator();
-    public:
-       ~IPRangeValidator();
+public:
+    ~IPRangeValidator();
+private:
     
     bool parseCIDR(const std::string& cidr, uint32_t& network, uint32_t& mask) const;
     bool parseIP(const std::string& ip, uint32_t& addr) const;

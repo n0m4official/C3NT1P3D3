@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="BlueKeepDetector.cpp" />
     <ClCompile Include="C3NT1P3D3.cpp" />
+	<ClCompile Include="C3NT1P3D3_Comprehensive.cpp" />
     <ClCompile Include="CoreEngine.cpp" />
     <ClCompile Include="DirectoryTraversalDetector.cpp" />
     <ClCompile Include="EternalBlueDetector.cpp" />

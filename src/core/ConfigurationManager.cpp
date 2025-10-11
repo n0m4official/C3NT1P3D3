@@ -1,4 +1,5 @@
 #include "../../include/core/ConfigurationManager.h"
+#include "../../include/IPRangeValidator.h"
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
@@ -21,12 +22,13 @@ bool ConfigurationManager::loadConfiguration(const std::string& config_file) {
     return loadFromFile(config_file);
 }
 
-bool ConfigurationManager::saveConfiguration(const std::string& config_file) const {
-    std::lock_guard<std::mutex> lock(config_mutex_);
+bool ConfigurationManager::saveConfiguration(const std::string& config_file) {
     return saveToFile(config_file);
 }
 
 bool ConfigurationManager::loadFromFile(const std::string& file_path) {
+#if 0
+    // JSON parsing disabled - JsonCpp not available
     std::ifstream file(file_path);
     if (!file.is_open()) {
         return false;
@@ -91,9 +93,15 @@ bool ConfigurationManager::loadFromFile(const std::string& file_path) {
     } catch (const std::exception& e) {
         return false;
     }
+#else
+    // Stub implementation - JSON not available
+    return false;
+#endif
 }
 
 bool ConfigurationManager::saveToFile(const std::string& file_path) const {
+#if 0
+    // JSON writing disabled - JsonCpp not available
     Json::Value root;
     
     // Security configuration
@@ -149,6 +157,10 @@ bool ConfigurationManager::saveToFile(const std::string& file_path) const {
     writer->write(root, &file);
     
     return true;
+#else
+    // Stub implementation - JSON not available
+    return false;
+#endif
 }
 
 void ConfigurationManager::setDefaultValues() {
@@ -233,6 +245,16 @@ std::vector<std::string> ConfigurationManager::getValidationErrors() const {
     }
     
     return errors;
+}
+
+void ConfigurationManager::updateSecurityConfig(const SecurityConfig& config) {
+    std::lock_guard<std::mutex> lock(config_mutex_);
+    security_config_ = config;
+}
+
+void ConfigurationManager::updateNetworkConfig(const NetworkConfig& config) {
+    std::lock_guard<std::mutex> lock(config_mutex_);
+    network_config_ = config;
 }
 
 } // namespace C3NT1P3D3

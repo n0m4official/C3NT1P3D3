@@ -1,79 +1,113 @@
-cmake_minimum_required(VERSION 3.16)
-project(C3NT1P3D3 VERSION 2.0.0)
+cmake_minimum_required(VERSION 3.20)
+project(C3NT1P3D3 LANGUAGES CXX)
 
-# Set C++ standard
+# -----------------------------
+# C++ standard
+# -----------------------------
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Build type
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
+# -----------------------------
+# Ensure stray GCC flags don't break MSVC builds
+# -----------------------------
+# Remove common GCC flags if they were injected into cache/environment
+string(REPLACE "-Wextra" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+string(REPLACE "-Wall"   "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+
+# -----------------------------
+# Compiler flags: MSVC vs others
+# -----------------------------
+if(MSVC)
+    # MSVC: use /W3 (or /W4 if you want more verbosity), no -Wall/-Wextra
+    set(MSVC_COMMON_FLAGS "/W3 /permissive- /EHsc /Zc:__cplusplus")
+    set(CMAKE_CXX_FLAGS_DEBUG  "${MSVC_COMMON_FLAGS} /Od /Zi")
+    set(CMAKE_CXX_FLAGS_RELEASE "${MSVC_COMMON_FLAGS} /O2")
+else()
+    # GCC/Clang
+    set(CMAKE_CXX_FLAGS_DEBUG  "-g -Wall -Wextra -O0")
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 endif()
 
-# Compiler flags
-set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -O0")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
-
-# Find required packages
-find_package(Threads REQUIRED)
-
-# Include directories
-include_directories(include)
-
-# Source files
-set(CORE_SOURCES
-    src/VulnerabilityDatabase.cpp
-    src/IPRangeValidator.cpp
-    src/VulnerabilityDatabaseExtended.cpp
-    src/EnterpriseScanner.cpp
+# -----------------------------
+# Include directories (project-specific)
+# -----------------------------
+include_directories(
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/core
+    ${PROJECT_SOURCE_DIR}/security
+    ${PROJECT_SOURCE_DIR}/simulation
 )
 
-set(DETECTOR_SOURCES
-    src/BlueKeepDetector.cpp
-    src/CoreEngine.cpp
-    src/DirectoryTraversalDetector.cpp
-    src/EternalBlueDetector.cpp
-    src/FTPAnonymousDetector.cpp
-    src/HeartbleedDetector.cpp
-    src/Log4ShellDetector.cpp
-    src/MockTarget.cpp
-    src/ModuleManager.cpp
-    src/NetworkScanner.cpp
-    src/SQLInjectionDetector.cpp
-    src/SSHBruteForceDetector.cpp
-    src/ShellshockDetector.cpp
-    src/XSSDetector.cpp
+# -----------------------------
+# Gather sources from your layout
+# -----------------------------
+file(GLOB_RECURSE SRC_FILES
+    "${PROJECT_SOURCE_DIR}/src/*.cpp"
+    "${PROJECT_SOURCE_DIR}/core/*.cpp"
+    "${PROJECT_SOURCE_DIR}/scanners/*.cpp"
+    "${PROJECT_SOURCE_DIR}/simulation/*.cpp"
 )
 
-# Original scanner (legacy)
-add_executable(C3NT1P3D3
-    src/C3NT1P3D3.cpp
-    ${DETECTOR_SOURCES}
-)
+# debug: show what was found
+message(STATUS "Found ${SRC_FILES} (count: ${SRC_FILES})")
+# To print each file uncomment:
+# foreach(f ${SRC_FILES})
+#   message(STATUS "  SRC: ${f}")
+# endforeach()
 
-# Enterprise scanner (legitimate)
-add_executable(C3NT1P3D3-Enterprise
-    src/C3NT1P3D3-Comprehensive.cpp
-    ${DETECTOR_SOURCES}
-    ${CORE_SOURCES}
-)
-
-# Enterprise demo
-add_executable(demo_enterprise_scanner demo_enterprise_scanner.cpp)
-target_link_libraries(demo_enterprise_scanner ${CMAKE_THREAD_LIBS_INIT})
-
-# Link libraries
-target_link_libraries(C3NT1P3D3 Threads::Threads)
-target_link_libraries(C3NT1P3D3-Enterprise Threads::Threads)
-
-# Compiler-specific options
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(C3NT1P3D3 PRIVATE -Wall -Wextra -Wpedantic)
-    target_compile_options(C3NT1P3D3-Enterprise PRIVATE -Wall -Wextra -Wpedantic)
+# -----------------------------
+# Main executable
+# -----------------------------
+if(NOT SRC_FILES)
+    message(FATAL_ERROR "No source files found under src/, core/, scanners/ or simulation/. Check paths.")
 endif()
 
-# Testing
+add_executable(C3NT1P3D3 ${SRC_FILES})
+
+# -----------------------------
+# SafeScanner static lib handling
+# -----------------------------
+# Prefer a MSVC .lib if present; otherwise link .a only for non-MSVC toolchains.
+if(EXISTS "${PROJECT_SOURCE_DIR}/libSafeScannerLib.lib")
+    message(STATUS "Linking libSafeScannerLib.lib (MSVC style) with executable.")
+    target_link_libraries(C3NT1P3D3 PRIVATE "${PROJECT_SOURCE_DIR}/libSafeScannerLib.lib")
+elseif(EXISTS "${PROJECT_SOURCE_DIR}/libSafeScannerLib.a")
+    if(MSVC)
+        message(WARNING "Found libSafeScannerLib.a but MSVC prefers .lib. Consider building SafeScanner as a .lib for MSVC.")
+    else()
+        message(STATUS "Linking libSafeScannerLib.a (GCC/Clang style) with executable.")
+        target_link_libraries(C3NT1P3D3 PRIVATE "${PROJECT_SOURCE_DIR}/libSafeScannerLib.a")
+    endif()
+else()
+    message(STATUS "No SafeScanner library found in project root. Skipping linking.")
+endif()
+
+# -----------------------------
+# Threads (if needed)
+# -----------------------------
+find_package(Threads QUIET)
+if(Threads_FOUND)
+    target_link_libraries(C3NT1P3D3 PRIVATE Threads::Threads)
+endif()
+
+# -----------------------------
+# Tests: simple CTest integration
+# -----------------------------
 enable_testing()
-add_executable(test_ip_validator tests/test_ip_validator.cpp src/IPRangeValidator.cpp)
-target_link_libraries(test_ip_validator Threads::Threads)
-add_test(NAME IPRangeValidatorTest COMMAND test_ip_validator)
+if(EXISTS "${PROJECT_SOURCE_DIR}/tests/test_ip_validator.cpp")
+    add_executable(test_ip_validator "${PROJECT_SOURCE_DIR}/tests/test_ip_validator.cpp" "${PROJECT_SOURCE_DIR}/src/IPRangeValidator.cpp")
+    if(Threads_FOUND)
+        target_link_libraries(test_ip_validator PRIVATE Threads::Threads)
+    endif()
+    add_test(NAME IPRangeValidatorTest COMMAND test_ip_validator)
+    message(STATUS "Added test_ip_validator target.")
+else()
+    message(STATUS "No tests/test_ip_validator.cpp found — test target not created.")
+endif()
+
+# -----------------------------
+# Helpful final messages
+# -----------------------------
+message(STATUS "Project configured: ${PROJECT_NAME}")
+message(STATUS "MSVC: ${MSVC}")

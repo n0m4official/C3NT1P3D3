@@ -1,4 +1,4 @@
-#include "ShellshockDetector.h"
+#include "../include/ShellshockDetector.h"
 #include <iostream>
 #include <optional>
 

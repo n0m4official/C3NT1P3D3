@@ -3,7 +3,8 @@
 #include <random>
 #include <sstream>
 #include <fstream>
-#include <json/json.h>
+#include <thread>
+// #include <json/json.h> // JSON disabled
 
 namespace C3NT1P3D3 {
 
@@ -57,6 +58,8 @@ SimulationEngine::SimulationEngine() : pImpl(std::make_unique<Impl>()) {}
 SimulationEngine::~SimulationEngine() = default;
 
 bool SimulationEngine::initialize(const std::string& config_path) {
+#if 0
+    // JSON parsing disabled
     if (!config_path.empty()) {
         // Load configuration from file if provided
         std::ifstream config_file(config_path);
@@ -76,6 +79,7 @@ bool SimulationEngine::initialize(const std::string& config_path) {
             }
         }
     }
+#endif
     return true;
 }
 
@@ -306,6 +310,8 @@ std::string SimulationEngine::determineRiskLevel(const std::vector<std::string>&
 }
 
 bool SimulationEngine::exportSimulationData(const std::string& filename) const {
+#if 0
+    // JSON writing disabled
     Json::Value root;
     
     root["simulation_config"]["delay_ms"] = pImpl->simulation_delay_ms;
@@ -324,9 +330,14 @@ bool SimulationEngine::exportSimulationData(const std::string& filename) const {
     writer->write(root, &file);
     
     return true;
+#else
+    return false;
+#endif
 }
 
 bool SimulationEngine::importSimulationData(const std::string& filename) {
+#if 0
+    // JSON parsing disabled
     std::ifstream file(filename);
     if (!file.is_open()) {
         return false;
@@ -349,6 +360,9 @@ bool SimulationEngine::importSimulationData(const std::string& filename) {
     }
     
     return true;
+#else
+    return false;
+#endif
 }
 
 } // namespace C3NT1P3D3

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\ba55d\source\repos\C3NT1P3D3\tests\test_ip_validator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ba55d\source\repos\C3NT1P3D3\src\IPRangeValidator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ba55d\source\repos\C3NT1P3D3\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5D8E3DA5-F8F2-3B76-ABBE-095DB5B48654}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
