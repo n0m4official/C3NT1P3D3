@@ -1,6 +1,88 @@
 #include "../include/ShellshockDetector.h"
+#include "../include/mitre/AttackMapper.h"
 #include <iostream>
 #include <optional>
+#include <sstream>
+
+#ifdef _WIN32
+    #include <winsock2.h>
+    #include <ws2tcpip.h>
+    #pragma comment(lib, "ws2_32.lib")
+#else
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <arpa/inet.h>
+    #include <unistd.h>
+    #define closesocket close
+#endif
+
+namespace {
+    bool testShellshockVulnerability(const std::string& host, int port) {
+        // Create HTTP request with Shellshock payload in User-Agent header
+        std::stringstream request;
+        request << "GET / HTTP/1.1\r\n";
+        request << "Host: " << host << "\r\n";
+        request << "User-Agent: () { :; }; echo; echo vulnerable\r\n";
+        request << "Connection: close\r\n";
+        request << "\r\n";
+        
+        std::string requestStr = request.str();
+        
+#ifdef _WIN32
+        WSADATA wsaData;
+        if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
+            return false;
+        }
+#endif
+        
+        int sock = socket(AF_INET, SOCK_STREAM, 0);
+        if (sock < 0) {
+#ifdef _WIN32
+            WSACleanup();
+#endif
+            return false;
+        }
+        
+        // Set timeout
+        struct timeval timeout;
+        timeout.tv_sec = 5;
+        timeout.tv_usec = 0;
+        setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (const char*)&timeout, sizeof(timeout));
+        
+        struct sockaddr_in server_addr;
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_port = htons(port);
+        inet_pton(AF_INET, host.c_str(), &server_addr.sin_addr);
+        
+        if (connect(sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
+            closesocket(sock);
+#ifdef _WIN32
+            WSACleanup();
+#endif
+            return false;
+        }
+        
+        // Send request
+        send(sock, requestStr.c_str(), requestStr.length(), 0);
+        
+        // Receive response
+        char buffer[4096] = {0};
+        int bytes_received = recv(sock, buffer, sizeof(buffer) - 1, 0);
+        
+        closesocket(sock);
+#ifdef _WIN32
+        WSACleanup();
+#endif
+        
+        if (bytes_received > 0) {
+            std::string response(buffer, bytes_received);
+            // Check if "vulnerable" appears in response (our echo command)
+            return response.find("vulnerable") != std::string::npos;
+        }
+        
+        return false;
+    }
+}
 
 // Shellshock (CVE-2014-6271) - Bash vulnerability
 ModuleResult ShellshockDetector::run(const MockTarget& target) {
@@ -43,25 +125,37 @@ ModuleResult ShellshockDetector::run(const MockTarget& target) {
             details += "Common attack vectors: HTTP headers, CGI scripts, DHCP, SSH\n";
         }
 
+        ModuleResult result;
+        result.module_name = "ShellshockDetector";
+        result.target_id = target.id();
+        result.details = details;
+        
         if (potentiallyVulnerable) {
-            return ModuleResult{
-                "ShellshockDetector",
-                true,
-                "Target potentially vulnerable to Shellshock (CVE-2014-6271)",
-                details,
-                Severity::Critical,
-                target.id()
-            };
+            result.vulnerability_found = true;
+            result.message = "Target potentially vulnerable to Shellshock (CVE-2014-6271)";
+            result.severity = Severity::Critical;
+            
+            // Add MITRE ATT&CK intelligence
+            auto& mapper = C3NT1P3D3::MITRE::AttackMapper::getInstance();
+            auto technique = mapper.mapVulnerability("Shellshock");
+            
+            if (technique.has_value()) {
+                result.attackTechniqueId = technique->techniqueId;
+                result.attackTactics = {"Initial Access"};
+                result.mitigations = technique->mitigations;
+            }
+            
+            // Perform actual Shellshock vulnerability test
+            if (testShellshockVulnerability(targetIp, 80)) {
+                result.message = "Target confirmed vulnerable to Shellshock (CVE-2014-6271)";
+            }
         } else {
-            return ModuleResult{
-                "ShellshockDetector",
-                false,
-                "Target does not appear vulnerable to Shellshock",
-                details,
-                Severity::Low,
-                target.id()
-            };
+            result.vulnerability_found = false;
+            result.message = "Target does not appear vulnerable to Shellshock";
+            result.severity = Severity::Low;
         }
+        
+        return result;
     }
     catch (const std::exception& ex) {
         return ModuleResult{

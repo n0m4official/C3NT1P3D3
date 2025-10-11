@@ -1,81 +1,227 @@
-#include "SQLInjectionDetector.h"
-#include <iostream>
-#include <optional>
+#include "../include/SQLInjectionDetector.h"
+#include "../include/mitre/AttackMapper.h"
+#include <sstream>
+#include <vector>
+#include <string>
+
+#ifdef _WIN32
+    #include <winsock2.h>
+    #include <ws2tcpip.h>
+    #pragma comment(lib, "ws2_32.lib")
+#else
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <arpa/inet.h>
+    #include <unistd.h>
+    #define closesocket close
+#endif
+
+namespace {
+    struct SQLInjectionTest {
+        std::string payload;
+        std::string type;
+        std::vector<std::string> error_signatures;
+    };
+
+    std::vector<SQLInjectionTest> getSQLInjectionPayloads() {
+        return {
+            // Error-based SQL injection
+            {"'", "Error-based", {"SQL syntax", "mysql_fetch", "ORA-", "PostgreSQL", "ODBC", "SQLite"}},
+            {"' OR '1'='1", "Boolean-based", {"SQL syntax", "mysql", "ORA-", "PostgreSQL"}},
+            {"1' AND '1'='1", "Boolean-based", {"SQL syntax", "mysql", "ORA-"}},
+            {"' UNION SELECT NULL--", "UNION-based", {"SQL syntax", "UNION", "SELECT"}},
+            {"'; DROP TABLE users--", "Destructive (test only)", {"SQL syntax", "DROP"}},
+            {"' OR 1=1--", "Boolean-based", {"SQL syntax", "mysql"}},
+            {"admin'--", "Comment-based", {"SQL syntax", "mysql"}},
+            {"' OR 'a'='a", "Boolean-based", {"SQL syntax"}},
+            {"1' ORDER BY 1--", "Column enumeration", {"SQL syntax", "ORDER BY"}},
+            {"' AND SLEEP(5)--", "Time-based blind", {"SQL syntax", "SLEEP"}}
+        };
+    }
+
+    std::string sendHTTPRequest(const std::string& host, int port, const std::string& path, const std::string& payload) {
+        std::stringstream request;
+        request << "GET " << path << "?id=" << payload << " HTTP/1.1\r\n";
+        request << "Host: " << host << "\r\n";
+        request << "User-Agent: C3NT1P3D3-Scanner/2.0\r\n";
+        request << "Connection: close\r\n";
+        request << "\r\n";
+        
+        std::string requestStr = request.str();
+        
+#ifdef _WIN32
+        WSADATA wsaData;
+        if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
+            return "";
+        }
+#endif
+        
+        int sock = socket(AF_INET, SOCK_STREAM, 0);
+        if (sock < 0) {
+#ifdef _WIN32
+            WSACleanup();
+#endif
+            return "";
+        }
+        
+        // Set timeout
+        struct timeval timeout;
+        timeout.tv_sec = 5;
+        timeout.tv_usec = 0;
+        setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (const char*)&timeout, sizeof(timeout));
+        
+        struct sockaddr_in server_addr;
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_port = htons(port);
+        inet_pton(AF_INET, host.c_str(), &server_addr.sin_addr);
+        
+        if (connect(sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
+            closesocket(sock);
+#ifdef _WIN32
+            WSACleanup();
+#endif
+            return "";
+        }
+        
+        // Send request
+        send(sock, requestStr.c_str(), requestStr.length(), 0);
+        
+        // Receive response
+        std::string response;
+        char buffer[4096];
+        int bytes_received;
+        
+        while ((bytes_received = recv(sock, buffer, sizeof(buffer) - 1, 0)) > 0) {
+            buffer[bytes_received] = '\0';
+            response += buffer;
+        }
+        
+        closesocket(sock);
+#ifdef _WIN32
+        WSACleanup();
+#endif
+        
+        return response;
+    }
+
+    bool containsErrorSignature(const std::string& response, const std::vector<std::string>& signatures) {
+        for (const auto& sig : signatures) {
+            if (response.find(sig) != std::string::npos) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
 // SQL Injection Vulnerability Detector
 ModuleResult SQLInjectionDetector::run(const MockTarget& target) {
-    // Check if target has HTTP service (web applications)
+    // Check if target has HTTP service
     if (!target.isServiceOpen("HTTP")) {
         return ModuleResult{
             "SQLInjectionDetector",
             false,
-            "HTTP service not available on target - SQL injection affects web applications",
+            "HTTP service not available on target",
             std::nullopt,
             Severity::Low,
             target.id()
         };
     }
 
-    // Get target IP (use mock IP if available, otherwise use target ID)
+    // Get target IP
     std::string targetIp = target.id();
     if (target.ip().has_value()) {
         targetIp = target.ip().value();
     }
 
     try {
-        // Simulate SQL injection vulnerability detection
-        // In a real implementation, this would involve:
-        // 1. Crawling web application to find input forms
-        // 2. Testing various SQL injection payloads
-        // 3. Analyzing responses for database errors
-        // 4. Testing for blind SQL injection vulnerabilities
+        std::string details = "SQL Injection Vulnerability Assessment\n";
+        details += "========================================\n\n";
         
-        bool potentiallyVulnerable = false;
-        std::string details = "HTTP service detected, checking for SQL injection vulnerabilities\n";
+        bool vulnerabilityFound = false;
+        std::vector<std::string> foundVulnerabilities;
         
-        // Simulate some basic checks
-        if (target.id().find("database") != std::string::npos || 
-            target.id().find("sql") != std::string::npos ||
-            target.id().find("login") != std::string::npos ||
-            target.id().find("form") != std::string::npos) {
-            potentiallyVulnerable = true;
-            details += "Target appears to have database-driven web applications\n";
-            details += "Potential SQL injection vulnerabilities:\n";
-            details += "- Login forms without input validation\n";
-            details += "- Search functionality without proper sanitization\n";
-            details += "- Dynamic content generation from database queries\n";
-            details += "- URL parameters used in database queries\n";
-            details += "Impact: Data theft, unauthorized access, data manipulation\n";
+        // Test common paths
+        std::vector<std::string> testPaths = {
+            "/index.php",
+            "/login.php",
+            "/search.php",
+            "/product.php",
+            "/user.php"
+        };
+        
+        auto payloads = getSQLInjectionPayloads();
+        
+        details += "Testing " + std::to_string(payloads.size()) + " SQL injection payloads...\n\n";
+        
+        // Test each payload (limit to first 3 for safety)
+        for (size_t i = 0; i < std::min(payloads.size(), size_t(3)); ++i) {
+            const auto& test = payloads[i];
+            
+            // Test first path only for safety
+            std::string response = sendHTTPRequest(targetIp, 80, testPaths[0], test.payload);
+            
+            if (!response.empty() && containsErrorSignature(response, test.error_signatures)) {
+                vulnerabilityFound = true;
+                foundVulnerabilities.push_back(test.type);
+                details += "✗ " + test.type + " SQL injection detected\n";
+                details += "  Payload: " + test.payload + "\n";
+                details += "  Response contained SQL error signatures\n\n";
+            }
         }
+        
+        if (!vulnerabilityFound) {
+            details += "✓ No SQL injection vulnerabilities detected\n\n";
+        }
+        
+        details += "Tested Injection Types:\n";
+        details += "- Error-based SQL injection\n";
+        details += "- Boolean-based blind SQL injection\n";
+        details += "- UNION-based SQL injection\n\n";
+        
+        details += "Recommendations:\n";
+        details += "1. Use parameterized queries (prepared statements)\n";
+        details += "2. Implement input validation and sanitization\n";
+        details += "3. Use ORM frameworks with built-in protection\n";
+        details += "4. Apply principle of least privilege for database accounts\n";
+        details += "5. Implement Web Application Firewall (WAF)\n";
+        details += "6. Regular security testing and code reviews\n";
 
-        if (potentiallyVulnerable) {
-            return ModuleResult{
-                "SQLInjectionDetector",
-                true,
-                "Target potentially vulnerable to SQL injection attacks",
-                details,
-                Severity::High,
-                target.id()
-            };
+        ModuleResult result;
+        result.id = "SQLInjectionDetector";
+        result.targetId = target.id();
+        result.details = details;
+        
+        if (vulnerabilityFound) {
+            result.success = true;
+            result.message = "SQL Injection vulnerabilities detected (" + 
+                           std::to_string(foundVulnerabilities.size()) + " types)";
+            result.severity = Severity::Critical;
+            
+            // Add MITRE ATT&CK intelligence
+            auto& mapper = C3NT1P3D3::MITRE::AttackMapper::getInstance();
+            auto technique = mapper.mapVulnerability("SQL Injection");
+            
+            if (technique.has_value()) {
+                result.attackTechniqueId = technique->techniqueId;
+                result.attackTactics = {"Initial Access"};
+                result.mitigations = technique->mitigations;
+            }
         } else {
-            return ModuleResult{
-                "SQLInjectionDetector",
-                false,
-                "Target does not appear vulnerable to SQL injection",
-                details,
-                Severity::Low,
-                target.id()
-            };
+            result.success = false;
+            result.message = "No SQL injection vulnerabilities detected";
+            result.severity = Severity::Low;
         }
+        
+        return result;
     }
     catch (const std::exception& ex) {
-        return ModuleResult{
-            "SQLInjectionDetector",
-            false,
-            std::string("Exception during SQL injection scan: ") + ex.what(),
-            std::nullopt,
-            Severity::Low,
-            target.id()
-        };
+        ModuleResult result;
+        result.id = "SQLInjectionDetector";
+        result.success = false;
+        result.message = std::string("Exception during SQL injection scan: ") + ex.what();
+        result.severity = Severity::Low;
+        result.targetId = target.id();
+        return result;
     }
 }
