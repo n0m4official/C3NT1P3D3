@@ -418,7 +418,7 @@ Examples:
 If you discover any safety vulnerabilities or potential misuse:
 1. **Stop using the scanner immediately**
 2. **Document the issue** with detailed steps
-3. **Contact security team**: security@c3nt1p3d3.com
+3. **Report via GitHub Issues**: https://github.com/n0m4official/C3NT1P3D3/issues
 4. **Do not disclose publicly** until fixed
 
 ## 🛠️ Development Roadmap
