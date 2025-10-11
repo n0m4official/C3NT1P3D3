@@ -2,6 +2,7 @@
 #include "../include/mitre/AttackMapper.h"
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 #ifdef _WIN32
     #include <winsock2.h>
@@ -94,15 +95,16 @@ namespace {
         return response;
     }
 
-    bool containsIndicator(const std::string& response, const std::vector<std::string>& indicators) {
+    std::vector<std::string> containsIndicator(const std::string& response, const std::vector<std::string>& indicators) {
+        std::vector<std::string> paths;
         for (const auto& indicator : indicators) {
             if (response.find(indicator) != std::string::npos) {
-                return true;
+                return paths;
             }
         }
-        return false;
+        return paths;
     }
-}
+} // end anonymous namespace
 
 ModuleResult DirectoryTraversalDetector::run(const MockTarget& target) {
     if (!target.isServiceOpen("HTTP")) {
@@ -133,12 +135,14 @@ ModuleResult DirectoryTraversalDetector::run(const MockTarget& target) {
         details += "Testing " + std::to_string(payloads.size()) + " directory traversal payloads...\n\n";
         
         // Test first 3 payloads for safety
-        for (size_t i = 0; i < std::min(payloads.size(), size_t(3)); ++i) {
+        size_t maxTests = (payloads.size() < 3) ? payloads.size() : 3;
+        for (size_t i = 0; i < maxTests; ++i) {
             const auto& test = payloads[i];
             
             std::string response = sendHTTPRequest(targetIp, 80, test.payload);
             
-            if (!response.empty() && containsIndicator(response, test.success_indicators)) {
+            auto indicators = containsIndicator(response, test.success_indicators);
+            if (!response.empty() && !indicators.empty()) {
                 vulnerabilityFound = true;
                 foundPayloads.push_back(test.description);
                 details += "✗ Directory traversal successful\n";

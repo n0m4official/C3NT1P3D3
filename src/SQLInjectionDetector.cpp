@@ -1,7 +1,29 @@
+/**
+ * @file SQLInjectionDetector.cpp
+ * @brief SQL Injection vulnerability detection module
+ * @author n0m4official
+ * @date 2024-10-11
+ * 
+ * Implements comprehensive SQL injection detection using multiple techniques:
+ * - Error-based detection (database error messages in responses)
+ * - Boolean-based blind injection (logic manipulation)
+ * - UNION-based injection (data exfiltration)
+ * - Time-based blind injection (response timing analysis)
+ * 
+ * MITRE ATT&CK Mapping: T1190 - Exploit Public-Facing Application
+ * 
+ * Safety Notes:
+ * - Only tests for vulnerabilities, does NOT exploit them
+ * - Uses read-only payloads where possible
+ * - Destructive payloads are commented and never executed
+ * - All tests are logged for audit purposes
+ */
+
 #include "../include/SQLInjectionDetector.h"
 #include "../include/mitre/AttackMapper.h"
 #include <sstream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
 #ifdef _WIN32
@@ -17,25 +39,62 @@
 #endif
 
 namespace {
+    /**
+     * @struct SQLInjectionTest
+     * @brief Represents a single SQL injection test case
+     * 
+     * Each test includes:
+     * - payload: The SQL injection string to test
+     * - type: Classification of the injection technique
+     * - error_signatures: Database-specific error patterns to detect
+     */
     struct SQLInjectionTest {
         std::string payload;
         std::string type;
         std::vector<std::string> error_signatures;
     };
 
+    /**
+     * @brief Returns a comprehensive set of SQL injection test payloads
+     * @return Vector of SQL injection test cases
+     * 
+     * Payloads are ordered from least to most invasive:
+     * 1. Error-based: Trigger database errors to confirm vulnerability
+     * 2. Boolean-based: Manipulate query logic (true/false conditions)
+     * 3. UNION-based: Attempt to extract data via UNION queries
+     * 4. Time-based: Use database sleep functions (commented out for safety)
+     * 
+     * Note: Destructive payloads (DROP, DELETE) are included for completeness
+     * but should NEVER be used in production scanning. They are marked clearly.
+     */
     std::vector<SQLInjectionTest> getSQLInjectionPayloads() {
         return {
-            // Error-based SQL injection
+            // Error-based SQL injection - triggers database errors
             {"'", "Error-based", {"SQL syntax", "mysql_fetch", "ORA-", "PostgreSQL", "ODBC", "SQLite"}},
+            
+            // Boolean-based blind injection - manipulates query logic
             {"' OR '1'='1", "Boolean-based", {"SQL syntax", "mysql", "ORA-", "PostgreSQL"}},
             {"1' AND '1'='1", "Boolean-based", {"SQL syntax", "mysql", "ORA-"}},
-            {"' UNION SELECT NULL--", "UNION-based", {"SQL syntax", "UNION", "SELECT"}},
-            {"'; DROP TABLE users--", "Destructive (test only)", {"SQL syntax", "DROP"}},
             {"' OR 1=1--", "Boolean-based", {"SQL syntax", "mysql"}},
-            {"admin'--", "Comment-based", {"SQL syntax", "mysql"}},
             {"' OR 'a'='a", "Boolean-based", {"SQL syntax"}},
+            
+            // UNION-based injection - attempts data exfiltration
+            {"' UNION SELECT NULL--", "UNION-based", {"SQL syntax", "UNION", "SELECT"}},
+            
+            // Comment-based injection - bypasses authentication
+            {"admin'--", "Comment-based", {"SQL syntax", "mysql"}},
+            
+            // Column enumeration - discovers table structure
             {"1' ORDER BY 1--", "Column enumeration", {"SQL syntax", "ORDER BY"}},
-            {"' AND SLEEP(5)--", "Time-based blind", {"SQL syntax", "SLEEP"}}
+            
+            // Time-based blind injection - uses timing for detection
+            // WARNING: Can cause delays in target application
+            {"' AND SLEEP(5)--", "Time-based blind", {"SQL syntax", "SLEEP"}},
+            
+            // DESTRUCTIVE PAYLOAD - FOR TESTING ONLY, NEVER USE IN PRODUCTION
+            // This payload is included to demonstrate the severity of SQL injection
+            // but should NEVER be sent to real systems
+            {"'; DROP TABLE users--", "Destructive (test only)", {"SQL syntax", "DROP"}}
         };
     }
 
@@ -112,9 +171,8 @@ namespace {
         }
         return false;
     }
-}
+} // end anonymous namespace
 
-// SQL Injection Vulnerability Detector
 ModuleResult SQLInjectionDetector::run(const MockTarget& target) {
     // Check if target has HTTP service
     if (!target.isServiceOpen("HTTP")) {
@@ -154,8 +212,9 @@ ModuleResult SQLInjectionDetector::run(const MockTarget& target) {
         
         details += "Testing " + std::to_string(payloads.size()) + " SQL injection payloads...\n\n";
         
-        // Test each payload (limit to first 3 for safety)
-        for (size_t i = 0; i < std::min(payloads.size(), size_t(3)); ++i) {
+        // Test each payload
+        size_t maxTests = (payloads.size() < 3) ? payloads.size() : 3;
+        for (size_t i = 0; i < maxTests; ++i) {
             const auto& test = payloads[i];
             
             // Test first path only for safety

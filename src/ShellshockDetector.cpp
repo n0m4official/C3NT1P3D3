@@ -80,11 +80,10 @@ namespace {
             return response.find("vulnerable") != std::string::npos;
         }
         
-        return false;
+        return "";
     }
-}
+} // end anonymous namespace
 
-// Shellshock (CVE-2014-6271) - Bash vulnerability
 ModuleResult ShellshockDetector::run(const MockTarget& target) {
     // Check if target has HTTP service (often indicates web servers that might use CGI)
     if (!target.isServiceOpen("HTTP")) {
@@ -126,12 +125,12 @@ ModuleResult ShellshockDetector::run(const MockTarget& target) {
         }
 
         ModuleResult result;
-        result.module_name = "ShellshockDetector";
-        result.target_id = target.id();
+        result.id = "ShellshockDetector";
+        result.targetId = target.id();
         result.details = details;
         
         if (potentiallyVulnerable) {
-            result.vulnerability_found = true;
+            result.success = true;
             result.message = "Target potentially vulnerable to Shellshock (CVE-2014-6271)";
             result.severity = Severity::Critical;
             
@@ -150,7 +149,7 @@ ModuleResult ShellshockDetector::run(const MockTarget& target) {
                 result.message = "Target confirmed vulnerable to Shellshock (CVE-2014-6271)";
             }
         } else {
-            result.vulnerability_found = false;
+            result.success = false;
             result.message = "Target does not appear vulnerable to Shellshock";
             result.severity = Severity::Low;
         }

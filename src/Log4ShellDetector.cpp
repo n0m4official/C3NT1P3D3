@@ -2,6 +2,7 @@
 #include "../include/mitre/AttackMapper.h"
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 #ifdef _WIN32
     #include <winsock2.h>
@@ -98,7 +99,7 @@ namespace {
         
         return response;
     }
-}
+} // end anonymous namespace
 
 ModuleResult Log4ShellDetector::run(const MockTarget& target) {
     if (!target.isServiceOpen("HTTP")) {
@@ -131,7 +132,8 @@ ModuleResult Log4ShellDetector::run(const MockTarget& target) {
         details += "This scan tests for payload reflection only\n\n";
         
         // Test first 3 payloads for safety
-        for (size_t i = 0; i < std::min(payloads.size(), size_t(3)); ++i) {
+        size_t maxTests = (payloads.size() < 3) ? payloads.size() : 3;
+        for (size_t i = 0; i < maxTests; ++i) {
             const auto& test = payloads[i];
             
             std::string response = sendHTTPWithLog4ShellPayload(targetIp, 80, test.payload, test.location);

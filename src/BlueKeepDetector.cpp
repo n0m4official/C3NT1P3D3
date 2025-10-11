@@ -81,7 +81,7 @@ namespace {
         
         return info;
     }
-}
+} // end anonymous namespace
 
 ModuleResult BlueKeepDetector::run(const MockTarget& target) {
     if (!target.isServiceOpen("RDP")) {

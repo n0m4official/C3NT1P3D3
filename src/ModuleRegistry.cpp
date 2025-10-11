@@ -21,9 +21,19 @@ void ModuleRegistry::registerAllModules() {
     registerModule(std::make_shared<XSSDetector>(), Category::WEB);
     registerModule(std::make_shared<DirectoryTraversalDetector>(), Category::WEB);
     registerModule(std::make_shared<Log4ShellDetector>(), Category::WEB);
+    registerModule(std::make_shared<XXEDetector>(), Category::WEB);
+    registerModule(std::make_shared<SSRFDetector>(), Category::WEB);
+    registerModule(std::make_shared<CommandInjectionDetector>(), Category::WEB);
+    registerModule(std::make_shared<LDAPInjectionDetector>(), Category::WEB);
+    registerModule(std::make_shared<JWTDetector>(), Category::WEB);
+    registerModule(std::make_shared<GraphQLInjectionDetector>(), Category::WEB);
+    registerModule(std::make_shared<DeserializationDetector>(), Category::WEB);
+    registerModule(std::make_shared<CORSDetector>(), Category::WEB);
+    registerModule(std::make_shared<SubdomainTakeoverDetector>(), Category::WEB);
 
     // SSL/TLS vulnerabilities
     registerModule(std::make_shared<HeartbleedDetector>(), Category::SSL_TLS);
+    registerModule(std::make_shared<WeakCipherDetector>(), Category::SSL_TLS);
 
     // System vulnerabilities
     registerModule(std::make_shared<ShellshockDetector>(), Category::SYSTEM);
@@ -77,11 +87,11 @@ std::vector<ModuleResult> ModuleRegistry::runAllModules(const MockTarget& target
             results.push_back(result);
         } catch (const std::exception& e) {
             ModuleResult errorResult;
-            errorResult.module_name = module->id();
-            errorResult.vulnerability_found = false;
+            errorResult.id = module->id();
+            errorResult.success = false;
             errorResult.message = std::string("Module execution failed: ") + e.what();
             errorResult.severity = Severity::Low;
-            errorResult.target_id = target.id();
+            errorResult.targetId = target.id();
             results.push_back(errorResult);
         }
     }
@@ -101,11 +111,11 @@ std::vector<ModuleResult> ModuleRegistry::runModulesByCategory(const MockTarget&
             results.push_back(result);
         } catch (const std::exception& e) {
             ModuleResult errorResult;
-            errorResult.module_name = module->id();
-            errorResult.vulnerability_found = false;
+            errorResult.id = module->id();
+            errorResult.success = false;
             errorResult.message = std::string("Module execution failed: ") + e.what();
             errorResult.severity = Severity::Low;
-            errorResult.target_id = target.id();
+            errorResult.targetId = target.id();
             results.push_back(errorResult);
         }
     }

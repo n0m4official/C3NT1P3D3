@@ -11,6 +11,16 @@
 #include "DirectoryTraversalDetector.h"
 #include "BlueKeepDetector.h"
 #include "Log4ShellDetector.h"
+#include "XXEDetector.h"
+#include "SSRFDetector.h"
+#include "CommandInjectionDetector.h"
+#include "WeakCipherDetector.h"
+#include "LDAPInjectionDetector.h"
+#include "JWTDetector.h"
+#include "GraphQLInjectionDetector.h"
+#include "DeserializationDetector.h"
+#include "CORSDetector.h"
+#include "SubdomainTakeoverDetector.h"
 #include <memory>
 #include <vector>
 #include <string>

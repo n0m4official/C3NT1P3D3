@@ -59,8 +59,9 @@ namespace {
         int bytes = recv(sock, buffer, sizeof(buffer) - 1, 0);
         
         bool anonymous_allowed = false;
+        std::string response;
         if (bytes > 0) {
-            std::string response(buffer);
+            response = std::string(buffer);
             // Check for successful USER command (230 or 331)
             if (response.find("230") != std::string::npos || 
                 response.find("331") != std::string::npos) {
@@ -89,7 +90,7 @@ namespace {
         
         return anonymous_allowed;
     }
-}
+} // end anonymous namespace
 
 ModuleResult FTPAnonymousDetector::run(const MockTarget& target) {
     if (!target.isServiceOpen("FTP")) {

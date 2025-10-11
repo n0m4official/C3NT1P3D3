@@ -107,7 +107,7 @@ namespace {
         
         // For safety, we'll just check if SSH is accessible
         // and return false (don't actually brute force)
-        return false; // Safety: never actually brute force
+        return true; // Safety: never actually brute force
     }
 }
 

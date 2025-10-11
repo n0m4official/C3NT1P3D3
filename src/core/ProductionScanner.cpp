@@ -1,3 +1,25 @@
+/**
+ * @file ProductionScanner.cpp
+ * @brief Production-ready vulnerability scanner implementation
+ * @author n0m4official
+ * @date 2024-10-11
+ * 
+ * This file implements the core scanning engine for the C3NT1P3D3 security scanner.
+ * It provides thread-safe scanning operations with progress tracking, authentication,
+ * and comprehensive error handling.
+ * 
+ * Key Features:
+ * - Multi-threaded scanning with atomic operations
+ * - Real-time progress tracking via mutex-protected state
+ * - Integration with SimulationEngine for safe testing
+ * - MITRE ATT&CK framework integration
+ * - Comprehensive audit logging
+ * 
+ * Thread Safety:
+ * All public methods are thread-safe. Internal state is protected by mutexes
+ * and atomic operations where appropriate.
+ */
+
 #include "../../include/core/ProductionScanner.h"
 #include "../../include/core/ConfigurationManager.h"
 #include "../../include/simulation/SimulationEngine.h"
@@ -10,26 +32,50 @@
 
 namespace C3NT1P3D3 {
 
+/**
+ * @class ProductionScanner::Impl
+ * @brief Private implementation class (PIMPL pattern)
+ * 
+ * Encapsulates internal scanner state and operations to maintain ABI stability
+ * and hide implementation details from the public interface.
+ */
 class ProductionScanner::Impl {
 public:
-    std::atomic<bool> scan_running{false};
-    std::atomic<bool> scan_cancelled{false};
+    // Thread-safe scan state flags
+    std::atomic<bool> scan_running{false};      ///< True if scan is currently executing
+    std::atomic<bool> scan_cancelled{false};    ///< True if user requested cancellation
     
-    ScanProgress current_progress;
-    std::mutex progress_mutex;
-    std::condition_variable progress_cv;
+    // Progress tracking (mutex-protected)
+    ScanProgress current_progress;              ///< Current scan progress state
+    std::mutex progress_mutex;                  ///< Protects progress updates
+    std::condition_variable progress_cv;        ///< Notifies progress changes
     
-    std::string current_scan_id;
-    std::string authentication_token;
-    bool authentication_required = false;
+    // Scan metadata
+    std::string current_scan_id;                ///< Unique identifier for current scan
+    std::string authentication_token;           ///< Auth token for restricted operations
+    bool authentication_required = false;       ///< Whether auth is needed
     
+    // Simulation engine for safe testing
     std::unique_ptr<SimulationEngine> simulation_engine;
     
+    /**
+     * @brief Constructor - initializes simulation engine
+     * 
+     * The simulation engine is initialized here to ensure all mock targets
+     * and safety controls are ready before any scanning begins.
+     */
     Impl() {
         simulation_engine = std::make_unique<SimulationEngine>();
         simulation_engine->initialize();
     }
     
+    /**
+     * @brief Generates a unique scan identifier
+     * @return Scan ID in format "PROD-SCAN-YYYYMMDD-HHMMSS"
+     * 
+     * Uses UTC timestamp to ensure uniqueness across time zones.
+     * Format is designed for easy sorting and log correlation.
+     */
     std::string generateScanID() {
         auto now = std::chrono::system_clock::now();
         auto time_t = std::chrono::system_clock::to_time_t(now);
@@ -38,6 +84,13 @@ public:
         return ss.str();
     }
     
+    /**
+     * @brief Gets current timestamp in ISO 8601 format
+     * @return Timestamp string "YYYY-MM-DD HH:MM:SS UTC"
+     * 
+     * Used for audit logs and scan reports. Always returns UTC time
+     * to avoid timezone confusion in distributed environments.
+     */
     std::string getCurrentTimestamp() {
         auto now = std::chrono::system_clock::now();
         auto time_t = std::chrono::system_clock::to_time_t(now);
@@ -46,6 +99,15 @@ public:
         return ss.str();
     }
     
+    /**
+     * @brief Updates scan progress in a thread-safe manner
+     * @param action Description of current action
+     * @param current Current progress value
+     * @param total Total items to process
+     * 
+     * Thread-safe progress update. Notifies waiting threads via condition variable.
+     * Used by UI components to display real-time scan progress.
+     */
     void updateProgress(const std::string& action, int current, int total) {
         std::lock_guard<std::mutex> lock(progress_mutex);
         current_progress.current_action = action;

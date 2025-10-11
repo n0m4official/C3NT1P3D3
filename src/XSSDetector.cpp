@@ -2,6 +2,7 @@
 #include "../include/mitre/AttackMapper.h"
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 #ifdef _WIN32
     #include <winsock2.h>
@@ -98,7 +99,7 @@ namespace {
         // Check if payload appears in response without encoding
         return response.find(payload) != std::string::npos;
     }
-}
+} // end anonymous namespace
 
 ModuleResult XSSDetector::run(const MockTarget& target) {
     if (!target.isServiceOpen("HTTP")) {
@@ -129,7 +130,8 @@ ModuleResult XSSDetector::run(const MockTarget& target) {
         details += "Testing " + std::to_string(payloads.size()) + " XSS payloads...\n\n";
         
         // Test first 3 payloads for safety
-        for (size_t i = 0; i < std::min(payloads.size(), size_t(3)); ++i) {
+        size_t maxTests = (payloads.size() < 3) ? payloads.size() : 3;
+        for (size_t i = 0; i < maxTests; ++i) {
             const auto& test = payloads[i];
             
             std::string response = sendHTTPRequest(targetIp, 80, "/search", test.payload);

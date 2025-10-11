@@ -1,0 +1,80 @@
+MIT License with Additional Safety Requirements
+
+Copyright (c) 2024 n0m4official
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+ADDITIONAL SAFETY AND ETHICAL USE REQUIREMENTS:
+
+1. AUTHORIZED USE ONLY
+   This software may only be used on systems and networks for which you have
+   explicit written authorization to perform security testing. Unauthorized
+   access to computer systems is illegal under the Computer Fraud and Abuse
+   Act (CFAA) and similar laws worldwide.
+
+2. RESPONSIBLE DISCLOSURE
+   Any vulnerabilities discovered using this software must be reported
+   responsibly to the affected parties before public disclosure. Users must
+   follow industry-standard responsible disclosure practices.
+
+3. NO MALICIOUS USE
+   This software must not be used for malicious purposes, including but not
+   limited to: unauthorized access, data theft, denial of service attacks,
+   or any activity that violates local, state, federal, or international law.
+
+4. EDUCATIONAL AND DEFENSIVE PURPOSES
+   This software is intended for educational purposes, security research,
+   and defensive security testing only. It is designed to help organizations
+   identify and fix vulnerabilities in their own systems.
+
+5. SIMULATION MODE
+   Users are strongly encouraged to use simulation mode when learning or
+   testing the software to avoid unintended consequences.
+
+6. IP RANGE RESTRICTIONS
+   Users must configure appropriate IP range exclusions to prevent scanning
+   of unauthorized networks, including private networks, government systems,
+   and critical infrastructure.
+
+7. RATE LIMITING AND RESPECT
+   Users must configure appropriate rate limiting and timeouts to avoid
+   overwhelming target systems or causing denial of service conditions.
+
+8. LIABILITY FOR MISUSE
+   The authors and copyright holders are not responsible for any misuse of
+   this software. Users assume all legal liability for their use of this tool.
+
+9. COMPLIANCE WITH LAWS
+   Users must comply with all applicable local, state, federal, and
+   international laws and regulations when using this software.
+
+10. NO WARRANTY FOR ILLEGAL USE
+    The warranty disclaimer below applies doubly to any illegal or
+    unauthorized use of this software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+DISCLAIMER:
+This software is a security testing tool. Like any powerful tool, it can be
+used for both constructive and destructive purposes. The authors have
+implemented numerous safety features and provide this software with the
+expectation that it will be used ethically and legally. However, the authors
+cannot control how the software is used and disclaim all responsibility for
+misuse.
+
+By using this software, you acknowledge that you have read, understood, and
+agree to comply with these terms and all applicable laws.

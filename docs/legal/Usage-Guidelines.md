@@ -1,8 +1,8 @@
 # ⚖️ C3NT1P3D3 Legal & Ethical Usage Guidelines
 
-**Version:** 1.0  
-**Last Updated:** October 2025  
-**Jurisdiction:** Canada (with international considerations)
+**Version:** 1.2  
+**Last Updated:** October 2024  
+**Jurisdiction:** Canada and the Province of Alberta (with international considerations)
 
 ---
 
@@ -482,6 +482,22 @@ If testing systems outside Canada:
 - Data Protection Act 2018
 - Investigatory Powers Act 2016
 
+### 7.3 Ethical Standards Alignment
+
+C3NT1P3D3 (CENTIPEDE) adheres to the ethical principles outlined by the **Canadian Centre for Cyber Security (CCCS)** and the **Communications Security Establishment (CSE)**, which emphasize lawful, authorized, and responsible cyber defence operations.  
+The project’s purpose aligns with CSE’s defensive mandate to:
+- Protect Canadian information infrastructure,
+- Advance research in vulnerability detection,
+- Promote secure system design and cyber resilience.
+
+In keeping with these standards:
+- No offensive or exploitative capabilities are included or encouraged.
+- All vulnerability detection modules operate under strict authorization and non-destructive testing principles.
+- The framework is intended solely for lawful defensive research, education, and institutional training within authorized environments.
+
+This alignment ensures that C3NT1P3D3 (CENTIPEDE)’s design, operation, and ethical posture conform to both **Canadian law (Criminal Code s.342.1)** and **CSE’s professional ethical expectations** for cybersecurity research.
+
+
 **Always consult with legal counsel for international testing.**
 
 ---
@@ -629,6 +645,6 @@ For responsible disclosure or security questions:
 
 ---
 
-**Document Version:** 1.0  
+**Document Version:** 1.1  
 **Last Updated:** October 2025  
 **Next Review:** April 2026
