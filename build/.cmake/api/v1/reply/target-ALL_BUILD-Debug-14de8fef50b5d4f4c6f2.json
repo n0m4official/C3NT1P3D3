@@ -20,10 +20,13 @@
 			"id" : "C3NT1P3D3::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+			"id" : "test_ip_validator::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "test_ip_validator::@6890427a1f51a3e7e1df"
+			"id" : "C3NT1P3D3-Comprehensive::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",

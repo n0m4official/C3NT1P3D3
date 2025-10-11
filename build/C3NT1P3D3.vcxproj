@@ -357,6 +357,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\ba55d\source\repos\C3NT1P3D3\src\BlueKeepDetector.cpp" />
+    <ClCompile Include="C:\Users\ba55d\source\repos\C3NT1P3D3\src\C3NT1P3D3-Production.cpp" />
     <ClCompile Include="C:\Users\ba55d\source\repos\C3NT1P3D3\src\C3NT1P3D3.cpp" />
     <ClCompile Include="C:\Users\ba55d\source\repos\C3NT1P3D3\src\CoreEngine.cpp" />
     <ClCompile Include="C:\Users\ba55d\source\repos\C3NT1P3D3\src\DirectoryTraversalDetector.cpp" />

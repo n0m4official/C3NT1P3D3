@@ -1,5 +1,5 @@
-#include "EternalBlueDetector.h"
-#include "IModule.h"
+#include "../include/EternalBlueDetector.h"
+#include "../include/IModule.h"
 #include <iostream>
 #include <string>
 #include <vector>
