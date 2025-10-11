@@ -666,5 +666,5 @@ cmake --build build --config Debug --target C3NT1P3D3-Comprehensive
 **Version:** 2.0.0-beta  
 **Release Date:** October 10, 2025  
 **Last Updated:** October 10, 2025  
-**Author:** Solo developer - from baseline cybersecurity knowledge to professional-grade security tool  
+**Author:** n0m4official 
 **Repository:** https://github.com/n0m4official/C3NT1P3D3
