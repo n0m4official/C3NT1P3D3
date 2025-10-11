@@ -1,5 +1,6 @@
 #include "../include/EternalBlueDetector.h"
 #include "../include/IModule.h"
+#include "../include/mitre/AttackMapper.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -824,7 +825,8 @@ ModuleResult EternalBlueDetector::run(const MockTarget& target) {
             details = result.details->toString();
         }
 
-        return ModuleResult{
+        // Create ModuleResult with ATT&CK integration
+        ModuleResult moduleResult{
             "EternalBlueDetector",
             result.success,
             result.message,
@@ -832,6 +834,28 @@ ModuleResult EternalBlueDetector::run(const MockTarget& target) {
             severity,
             target.id()
         };
+        
+        // Add MITRE ATT&CK information
+        auto& mapper = C3NT1P3D3::MITRE::AttackMapper::getInstance();
+        auto technique = mapper.mapVulnerability("EternalBlueDetector");
+        
+        if (technique.has_value()) {
+            moduleResult.attackTechniqueId = technique->techniqueId;
+            moduleResult.attackTechniqueName = technique->name;
+            moduleResult.attackUrl = technique->url;
+            
+            // Convert tactics to strings
+            for (auto tactic : technique->tactics) {
+                moduleResult.attackTactics.push_back(
+                    C3NT1P3D3::MITRE::AttackTechnique::tacticToString(tactic)
+                );
+            }
+            
+            // Copy mitigations
+            moduleResult.mitigations = technique->mitigations;
+        }
+        
+        return moduleResult;
     }
     catch (const std::exception& ex) {
         return ModuleResult{
