@@ -1,18 +1,26 @@
-# 🛡️ C3NT1P3D3 Security Scanner Framework v2.0
+# 🛡️ C3NT1P3D3 Security Scanner Framework v2.0.0-beta
 
-**Safety-First Vulnerability Detection Framework**
+**Safety-First Vulnerability Detection Framework with MITRE ATT&CK Integration**
+
+[![Release](https://img.shields.io/badge/release-v2.0.0--beta-blue.svg)](https://github.com/n0m4official/C3NT1P3D3/releases/tag/v2.0.0-beta)
+[![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/n0m4official/C3NT1P3D3)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/n0m4official/C3NT1P3D3)
 
 ## 🎯 Project Status
 
-C3NT1P3D3 is a **security scanning framework** with production-ready infrastructure and working vulnerability detection capabilities. The core framework is complete, with the first production scanner module (EternalBlue) fully operational.
+C3NT1P3D3 is a **production-ready security scanning framework** with working vulnerability detection capabilities and professional MITRE ATT&CK threat intelligence integration. Built from scratch using modern C++17, featuring real protocol implementations and industry-standard security frameworks.
 
 ### Current Status
 - ✅ **Framework:** Production-ready CLI, safety controls, and infrastructure
 - ✅ **MITRE ATT&CK Integration:** Automatic threat intelligence mapping (10+ vulnerabilities → 6 techniques)
 - ✅ **EternalBlue Scanner:** Fully functional MS17-010 vulnerability detection with ATT&CK context
 - ✅ **Heartbleed Scanner:** Real TLS/SSL vulnerability detection with memory leak analysis
+- ✅ **Release Package:** Distributable v2.0.0-beta with executable and documentation
+- ✅ **GitHub Release:** Tagged and published with comprehensive release notes
 - 🚧 **Additional Modules:** Detection logic complete, integration in progress
-- 📋 **Planned:** Full vulnerability detection for web, network, and system vulnerabilities
+- 📋 **Planned:** ATT&CK Navigator export, threat actor correlation, additional scanners
 
 ### Highlighted Features
 
@@ -29,6 +37,44 @@ C3NT1P3D3 is a **security scanning framework** with production-ready infrastruct
 - OS version fingerprinting
 - Production-grade error handling and reporting
 - Configurable deep inspection mode
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Download the latest release
+https://github.com/n0m4official/C3NT1P3D3/releases/tag/v2.0.0-beta
+
+# Run in simulation mode (safe, no network traffic)
+C3NT1P3D3-Comprehensive.exe 192.168.1.0/24 --simulation --output test.json
+
+# Scan your local network (requires authorization)
+C3NT1P3D3-Comprehensive.exe 192.168.1.0/24 --output results.json
+
+# View results with MITRE ATT&CK intelligence
+cat results.json
+```
+
+**Example Output:**
+```json
+{
+  "vulnerability": "EternalBlue",
+  "severity": "Critical",
+  "attack_intelligence": {
+    "technique_id": "T1210",
+    "technique_name": "Exploitation of Remote Services",
+    "tactics": ["Lateral Movement"],
+    "mitigations": [
+      "Apply MS17-010 security patch",
+      "Disable SMBv1 protocol",
+      "Implement network segmentation"
+    ]
+  }
+}
+```
+
+---
 
 ## 🔒 Safety-First Design Philosophy
 
@@ -536,31 +582,72 @@ C3NT1P3D3/
 ## 📊 Build Status & Statistics
 
 **Build Status:** ✅ **SUCCESS** (0 errors, 0 warnings)  
-**Executable:** `C3NT1P3D3-Comprehensive.exe` (Debug build)  
-**Platform:** Windows x64 (cross-platform compatible)
+**Executable:** `C3NT1P3D3-Comprehensive.exe` (977 KB)  
+**Platform:** Windows x64 (cross-platform compatible)  
+**Latest Release:** [v2.0.0-beta](https://github.com/n0m4official/C3NT1P3D3/releases/tag/v2.0.0-beta)
 
 ### Project Statistics
 - **Total Lines of Code:** ~5,000+ (all original)
 - **Files Created:** 50+
 - **Documentation:** 100+ pages
 - **Vulnerabilities Mapped:** 10+
-- **ATT&CK Techniques:** 6 unique
+- **ATT&CK Techniques:** 6 unique (T1210, T1040, T1190, T1189, T1110, T1078)
 - **Mitigations Provided:** 30+ specific steps
 - **Build Time:** <30 seconds
 - **Development Time:** 10 weeks (solo developer)
+- **Release Package:** 239 KB (includes exe + docs)
 
 ### Key Achievements
 - ✅ Real vulnerability detection (EternalBlue, Heartbleed)
 - ✅ MITRE ATT&CK integration (industry-standard threat intelligence)
-- ✅ Production-quality C++17 code
-- ✅ Cross-platform socket programming
-- ✅ Comprehensive safety controls
-- ✅ Professional documentation
-- ✅ Legal compliance framework
+- ✅ Production-quality C++17 code (RAII, smart pointers, exception safety)
+- ✅ Cross-platform socket programming (Windows/Linux)
+- ✅ Comprehensive safety controls (IP validation, rate limiting, authorization)
+- ✅ Professional documentation (technical deep-dives, legal framework, demo scripts)
+- ✅ Legal compliance framework (Canadian law, responsible disclosure)
+- ✅ GitHub release with distributable package
+
+### System Requirements
+- **OS:** Windows 10/11 (x64) or Linux (x64)
+- **RAM:** 2 GB minimum, 4 GB recommended
+- **Disk:** 50 MB for installation
+- **Network:** Required for actual scanning (simulation mode available)
+- **Permissions:** Administrator/root for some network operations
+
+---
+
+## 📥 Download & Installation
+
+### Option 1: Download Release Package
+```bash
+# Download from GitHub Releases
+https://github.com/n0m4official/C3NT1P3D3/releases/tag/v2.0.0-beta
+
+# Extract and run
+unzip C3NT1P3D3-v2.0.0-beta.zip
+cd C3NT1P3D3-v2.0.0-beta
+./C3NT1P3D3-Comprehensive.exe --help
+```
+
+### Option 2: Build from Source
+```bash
+# Clone the repository
+git clone https://github.com/n0m4official/C3NT1P3D3.git
+cd C3NT1P3D3
+
+# Build with CMake
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+cmake --build build --config Debug --target C3NT1P3D3-Comprehensive
+
+# Run
+./build/Debug/C3NT1P3D3-Comprehensive.exe --help
+```
 
 ---
 
 **Project Status:** 🚀 **Production-Ready Framework** - Core complete, expanding capabilities  
 **Version:** 2.0.0-beta  
-**Last Updated:** October 2025  
-**Author:** Solo developer with baseline cybersecurity knowledge → professional-grade results
+**Release Date:** October 10, 2025  
+**Last Updated:** October 10, 2025  
+**Author:** Solo developer - from baseline cybersecurity knowledge to professional-grade security tool  
+**Repository:** https://github.com/n0m4official/C3NT1P3D3
