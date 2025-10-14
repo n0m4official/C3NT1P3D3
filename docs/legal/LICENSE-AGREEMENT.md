@@ -1,6 +1,6 @@
 # C3NT1P3D3 End-User License Agreement (EULA)
 
-**Effective Date:** October 11, 2024  
+**Effective Date:** October 11, 2025  
 **Version:** 1.1  
 **Governing Law:** Laws of Canada and the Province of Alberta
 
@@ -301,9 +301,9 @@ For questions about this Agreement, contact:
 ---
 
 **Document Version:** 1.0  
-**Effective Date:** October 11, 2024  
-**Last Updated:** October 11, 2024  
-**Next Review:** October 11, 2025
+**Effective Date:** October 11, 2025  
+**Last Updated:** October 11, 2025  
+**Next Review:** October 11, 2026
 
 ---
 
