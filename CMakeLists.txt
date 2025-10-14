@@ -29,17 +29,18 @@
 #   cmake --build . --config Release
 #
 # Module Categories:
-#   - Network Vulnerabilities: 4 modules
-#   - Web Application: 22 modules (13 original + 9 advanced)
+#   - Network Vulnerabilities: 6 modules (4 original + 2 new)
+#   - Web Application: 26 modules (22 original + 4 new)
 #   - Cloud & Container: 2 modules
 #   - SSL/TLS: 2 modules
 #   - System: 1 module
+#   - Total: 37 modules
 #
 # MITRE ATT&CK Integration:
-#   - 30 vulnerability detectors
-#   - 17 unique ATT&CK techniques mapped
-#   - 11 tactics covered
-#   - 150+ mitigation recommendations
+#   - 37 vulnerability detectors
+#   - 20+ unique ATT&CK techniques mapped
+#   - 12 tactics covered
+#   - 180+ mitigation recommendations
 ################################################################################
 
 cmake_minimum_required(VERSION 3.20)
@@ -201,13 +202,15 @@ add_executable(C3NT1P3D3-Comprehensive
     src/MockTarget.cpp
     src/mitre/AttackMapper.cpp
     
-    # ===== NETWORK VULNERABILITY MODULES (4) =====
+    # ===== NETWORK VULNERABILITY MODULES (6) =====
     src/EternalBlueDetector.cpp
     src/BlueKeepDetector.cpp
     src/SSHBruteForceDetector.cpp
     src/FTPAnonymousDetector.cpp
+    src/SNMPWeakCommunityDetector.cpp
+    src/TelnetCleartextDetector.cpp
     
-    # ===== WEB APPLICATION MODULES (22) =====
+    # ===== WEB APPLICATION MODULES (26) =====
     # Original web modules (13)
     src/SQLInjectionDetector.cpp
     src/XSSDetector.cpp
@@ -223,7 +226,7 @@ add_executable(C3NT1P3D3-Comprehensive
     src/DirectoryTraversalDetector.cpp
     src/Log4ShellDetector.cpp
     
-    # Advanced web modules (9) - NEW!
+    # Advanced web modules (9)
     src/SSTIDetector.cpp
     src/NoSQLInjectionDetector.cpp
     src/HTTPRequestSmugglingDetector.cpp
@@ -233,6 +236,12 @@ add_executable(C3NT1P3D3-Comprehensive
     src/XMLInjectionDetector.cpp
     src/RaceConditionDetector.cpp
     src/PrototypePollutionDetector.cpp
+    
+    # New web modules (4) - LATEST!
+    src/CSRFDetector.cpp
+    src/IDORDetector.cpp
+    src/XPathInjectionDetector.cpp
+    src/HostHeaderInjectionDetector.cpp
     
     # ===== CLOUD & CONTAINER MODULES (2) - NEW! =====
     src/CloudMetadataDetector.cpp
@@ -262,29 +271,21 @@ if(UNIX AND NOT APPLE)
 endif()
 
 message(STATUS "========================================================================")
-message(STATUS "C3NT1P3D3-Comprehensive - 30 LEGENDARY MODULES")
+message(STATUS "C3NT1P3D3-Comprehensive - 37 LEGENDARY MODULES")
 message(STATUS "========================================================================")
-message(STATUS "  Network modules:           4")
-message(STATUS "  Web Application modules:  22  (13 original + 9 advanced)")
-message(STATUS "  Cloud & Container modules: 2  (NEW!)")
+message(STATUS "  Network modules:           6  (4 original + 2 new)")
+message(STATUS "  Web Application modules:  26  (13 original + 9 advanced + 4 new)")
+message(STATUS "  Cloud & Container modules: 2")
 message(STATUS "  SSL/TLS modules:           2")
 message(STATUS "  System modules:            1")
 message(STATUS "========================================================================")
-message(STATUS "Total: 30 vulnerability detectors")
-message(STATUS "MITRE ATT&CK: 17 techniques mapped")
+message(STATUS "Total: 37 vulnerability detectors")
+message(STATUS "MITRE ATT&CK: 20+ techniques mapped")
 message(STATUS "========================================================================")
 message(STATUS "")
-message(STATUS "NEW ADVANCED MODULES:")
-message(STATUS "  - Server-Side Template Injection (SSTI)")
-message(STATUS "  - NoSQL Injection")
-message(STATUS "  - HTTP Request Smuggling")
-message(STATUS "  - WebSocket Vulnerabilities")
-message(STATUS "  - OAuth/OIDC Flaws")
-message(STATUS "  - API Rate Limiting Bypass")
-message(STATUS "  - Cloud Metadata Exploitation")
-message(STATUS "  - Container Escape")
-message(STATUS "  - XML Injection")
-message(STATUS "  - Race Conditions")
-message(STATUS "  - Prototype Pollution")
+message(STATUS "LATEST ADDITIONS (v3.1):")
+message(STATUS "  Web: CSRF, IDOR, XPath Injection, Host Header Injection")
+message(STATUS "  Network: SNMP Weak Community, Telnet Cleartext")
 message(STATUS "========================================================================")
-message(STATUS "STATUS: INDUSTRY-LEADING SECURITY SCANNER (v3.0.0-legendary)")
+message(STATUS "STATUS: INDUSTRY-LEADING SECURITY SCANNER (v3.1.0-legendary)")
+message(STATUS "========================================================================")

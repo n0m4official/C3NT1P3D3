@@ -17,13 +17,19 @@ struct CommandLineOptions {
     bool web_only = false;
     bool network_only = false;
     bool ssl_only = false;
+    bool cloud_only = false;
+    bool list_modules = false;
+    bool show_version = false;
     int rate_limit = 100;
     int threads = 10;
     int timeout = 30;
     bool no_strict = false;
     bool verbose = false;
+    bool quiet = false;
     bool help = false;
     bool enable_simulation = false;
+    std::vector<std::string> exclude_modules;
+    std::vector<std::string> include_modules;
 };
 
 void printBanner() {
@@ -37,8 +43,8 @@ void printBanner() {
 ║  ╚██████╗██████╔╝██║ ╚████║   ██║    ██║██║     ██████╔╝██████╔╝║
 ║   ╚═════╝╚═════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═╝╚═╝     ╚═════╝ ╚═════╝ ║
 ║                                                               ║
-║          Comprehensive Security Scanner v2.0                 ║
-║          Safety-First Vulnerability Detection                ║
+║          Comprehensive Security Scanner v3.0                 ║
+║          36 Modules | MITRE ATT&CK Integrated                ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 )" << std::endl;
@@ -55,18 +61,36 @@ Target Range:
   127.0.0.1         Scan single host
 
 Options:
-  --output FILE         Save results to file (auto-detects format from extension)
-  --format FORMAT       Output format: json, xml, txt (default: json)
-  --web-only            Scan only web vulnerabilities
-  --network-only        Scan only network vulnerabilities
-  --ssl-only            Scan only SSL/TLS vulnerabilities
-  --rate-limit N        Limit requests per second (default: 100)
-  --threads N           Number of scanning threads (default: 10)
-  --timeout N           Connection timeout in seconds (default: 30)
-  --no-strict           Disable strict mode (NOT RECOMMENDED)
-  --verbose             Enable verbose logging
-  --simulation          Enable simulation mode (safe testing)
-  --help                Show this help message
+  -o, --output FILE         Save results to file (auto-detects format from extension)
+  -f, --format FORMAT       Output format: json, xml, txt (default: json)
+  
+Scanning Modes:
+  --web-only                Scan only web vulnerabilities
+  --network-only            Scan only network vulnerabilities
+  --ssl-only                Scan only SSL/TLS vulnerabilities
+  --cloud-only              Scan only cloud/container vulnerabilities
+  
+Module Control:
+  --list-modules            List all available detection modules
+  --include MODULE1,MODULE2 Only run specified modules
+  --exclude MODULE1,MODULE2 Skip specified modules
+  
+Performance:
+  --rate-limit N            Limit requests per second (default: 100)
+  --threads N               Number of scanning threads (default: 10)
+  --timeout N               Connection timeout in seconds (default: 30)
+  
+Output Control:
+  -v, --verbose             Enable verbose logging
+  -q, --quiet               Minimal output (errors only)
+  
+Safety:
+  --no-strict               Disable strict mode (NOT RECOMMENDED)
+  --simulation              Enable simulation mode (safe testing)
+  
+Information:
+  --version                 Show version information
+  -h, --help                Show this help message
 
 Examples:
   # Scan local network with default settings

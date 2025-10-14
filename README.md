@@ -2,7 +2,7 @@
 
 **A comprehensive vulnerability detection framework with MITRE ATT&CK integration**
 
-[![Release](https://img.shields.io/badge/release-v3.0.0--legendary-blue.svg)](https://github.com/n0m4official/C3NT1P3D3/releases)
+[![Release](https://img.shields.io/badge/release-v3.1.0--legendary-blue.svg)](https://github.com/n0m4official/C3NT1P3D3/releases)
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/n0m4official/C3NT1P3D3)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
@@ -16,7 +16,7 @@
 
 ## Overview
 
-C3NT1P3D3 is an open-source security scanning framework designed for authorized penetration testing and security research. Built with modern C++17, it provides 30 vulnerability detection modules that integrate seamlessly with the MITRE ATT&CK framework for professional threat intelligence reporting.
+C3NT1P3D3 is an open-source security scanning framework designed for authorized penetration testing and security research. Built with modern C++17, it provides 37 vulnerability detection modules that integrate with the MITRE ATT&CK framework for threat intelligence reporting.
 
 This project serves the cybersecurity community by offering:
 - **Educational resources** for security students and researchers
@@ -26,8 +26,8 @@ This project serves the cybersecurity community by offering:
 
 ### Key Capabilities
 
-- **30 Vulnerability Detection Modules** covering network, web, cloud, and system security
-- **MITRE ATT&CK Integration** with automatic mapping to 17 attack techniques
+- **37 Vulnerability Detection Modules** covering network, web, cloud, and system security
+- **MITRE ATT&CK Integration** with automatic mapping to 20+ attack techniques
 - **Real Protocol Implementations** including SMB, TLS/SSL, HTTP, SSH, FTP, and RDP
 - **Production-Ready Code** with comprehensive safety controls and legal compliance
 - **Cross-Platform Support** for Windows and Linux environments
@@ -100,6 +100,8 @@ For complete legal terms, please review:
 - XML Injection
 - Race Conditions
 - Prototype Pollution
+- CSRF (Cross-Site Request Forgery)
+- IDOR (Insecure Direct Object Reference)
 
 ### Cloud & Container Security (2)
 
