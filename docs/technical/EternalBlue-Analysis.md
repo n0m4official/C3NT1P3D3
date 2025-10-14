@@ -561,4 +561,4 @@ ExploitResult EternalBlueExploit::Run(const std::string& target) {
 
 **Document Version:** 1.0  
 **Last Updated:** October 2025  
-**Maintained By:** C3NT1P3D3 Security Research Team
+**Maintained By:** n0m4official
