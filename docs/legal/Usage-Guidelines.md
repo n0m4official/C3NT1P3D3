@@ -1,7 +1,7 @@
 # ⚖️ C3NT1P3D3 Legal & Ethical Usage Guidelines
 
 **Version:** 1.2  
-**Last Updated:** October 2024  
+**Last Updated:** October 2025  
 **Jurisdiction:** Canada and the Province of Alberta (with international considerations)
 
 ---
