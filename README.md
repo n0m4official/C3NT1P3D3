@@ -10,6 +10,10 @@
 
 ---
 
+<img width="474" height="447" alt="centipede" src="https://github.com/user-attachments/assets/0338f914-4239-452f-95d0-e3fcf60e076b"/>
+
+---
+
 ## Overview
 
 C3NT1P3D3 is an open-source security scanning framework designed for authorized penetration testing and security research. Built with modern C++17, it provides 30 vulnerability detection modules that integrate seamlessly with the MITRE ATT&CK framework for professional threat intelligence reporting.

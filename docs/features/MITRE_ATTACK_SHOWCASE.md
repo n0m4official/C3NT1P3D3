@@ -397,4 +397,4 @@ C3NT1P3D3's MITRE ATT&CK integration transforms raw vulnerability data into **ac
 **Built with:** Modern C++17, MITRE ATT&CK v13  
 **Status:** Production Ready  
 **License:** MIT with Safety Requirements  
-**Author:** C3NT1P3D3 Security Research Team
+**Author:** n0m4official - C3NT1P3D3 Developer  

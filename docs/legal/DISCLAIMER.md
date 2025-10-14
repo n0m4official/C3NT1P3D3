@@ -305,10 +305,10 @@ This disclaimer, together with the End-User License Agreement (EULA), Terms of S
 ---
 
 **Document Version:** 1.0  
-**Effective Date:** October 11, 2024  
-**Last Updated:** October 11, 2024  
-**Next Review:** October 11, 2025
+**Effective Date:** October 11, 2025  
+**Last Updated:** October 11, 2025  
+**Next Review:** October 11, 2026
 
 ---
 
-**© 2024 C3NT1P3D3 Development Team. All Rights Reserved.**
+**© 2025 C3NT1P3D3 Development Team. All Rights Reserved.**

@@ -1,6 +1,6 @@
 # C3NT1P3D3 Terms of Service
 
-**Effective Date:** October 11, 2024  
+**Effective Date:** October 11, 2025  
 **Version:** 1.1  
 **Jurisdiction:** Canada and the Province of Alberta
 
@@ -364,9 +364,9 @@ This Software is a powerful security tool. With great power comes great responsi
 ---
 
 **Document Version:** 1.0  
-**Effective Date:** October 11, 2024  
-**Last Updated:** October 11, 2024  
-**Next Review:** October 11, 2025
+**Effective Date:** October 11, 2025  
+**Last Updated:** October 11, 2025  
+**Next Review:** October 11, 2026
 
 ---
 
