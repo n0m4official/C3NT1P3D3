@@ -1,6 +1,6 @@
 # 🔬 EternalBlue (MS17-010) Detection: Technical Deep-Dive
 
-**Author:** n0m4official - C3NT1P3D3 Developer
+**Author:** n0m4official - C3NT1P3D3 Developer  
 **Date:** October 2025  
 **CVE:** CVE-2017-0144  
 **CVSS Score:** 8.1 (High)  
