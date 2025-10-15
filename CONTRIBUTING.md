@@ -215,6 +215,8 @@ Contributors will be recognized in:
 
 Thank you for helping make C3NT1P3D3 better!
 
+#### C3NT1P3D3 is maintained by a single developer. While all requests will be handled responsibly, response times may vary depending on the maintainer’s availability.
+
 ---
 
 **Remember:** All contributions must comply with legal and ethical standards for security research.
