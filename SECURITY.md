@@ -1,5 +1,7 @@
 # Security Policy
 
+#### C3NT1P3D3 is maintained by a single developer. While all reports will be handled responsibly, response times may vary depending on the maintainer’s availability.
+
 ## Supported Versions
 
 We release patches for security vulnerabilities in the following versions:
@@ -9,6 +11,7 @@ We release patches for security vulnerabilities in the following versions:
 | 3.1.x   | :white_check_mark: |
 | 3.0.x   | :x:                |
 | < 3.0   | :x:                |
+
 
 ## Reporting a Vulnerability
 
