@@ -363,9 +363,9 @@ This Software is a powerful security tool. With great power comes great responsi
 
 ---
 
-**Document Version:** 1.0  
+**Document Version:** 1.1  
 **Effective Date:** October 11, 2025  
-**Last Updated:** October 11, 2025  
+**Last Updated:** October 15, 2025  
 **Next Review:** October 11, 2026
 
 ---
