@@ -331,6 +331,6 @@ Legal documentation is reviewed and updated regularly. Check for updates:
 
 ---
 
-**© 2024 C3NT1P3D3 Development Team. All Rights Reserved.**
+**© 2025C3NT1P3D3 Development Team. All Rights Reserved.**
 
 **USE RESPONSIBLY. USE LEGALLY. USE ETHICALLY.**
