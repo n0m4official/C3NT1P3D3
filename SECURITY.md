@@ -57,13 +57,15 @@ When reporting a vulnerability, please include:
 
 ### Response Timeline
 
-- **Initial Response:** Within 48 hours
-- **Status Update:** Within 7 days
-- **Fix Timeline:** Depends on severity
-  - Critical: 1-7 days
-  - High: 7-30 days
-  - Medium: 30-90 days
-  - Low: Best effort
+- Acknowledgment: Within 48 hours
+- Status update: Within 7 days
+- Fix timeline: Depends on severity
+   - Critical: 1–7 days
+   - High: 7–30 days
+   - Medium: 30–90 days
+   - Low: Best effort
+
+Note: Timelines may vary depending on maintainer availability.
 
 ### Disclosure Policy
 
