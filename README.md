@@ -368,10 +368,10 @@ C3NT1P3D3/
 
 ## Development Status
 
-### Current Release (v3.0.0-legendary)
+### Current Release (v3.1.0-legendary)
 
 ✅ **Completed:**
-- 30 vulnerability detection modules with real protocol implementations
+- 37 vulnerability detection modules with real protocol implementations
 - MITRE ATT&CK framework integration
 - Core scanning infrastructure
 - Safety controls and IP validation
