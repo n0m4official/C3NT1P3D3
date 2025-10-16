@@ -374,7 +374,7 @@ C3NT1P3D3/
 
 ## Development Status
 
-### Current Release (v3.1.0-legendary)
+### Current Release (v3.2.0-legendary)
 
 ✅ **Completed:**
 - 37 vulnerability detection modules with real protocol implementations
