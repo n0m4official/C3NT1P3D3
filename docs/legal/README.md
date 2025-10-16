@@ -331,7 +331,6 @@ Legal documentation is reviewed and updated regularly. Check for updates:
 
 ---
 
-**© 2024 n0m4official. All Rights Reserved.**  
-**This is a solo development project created and maintained by one person.**
+**© 2025C3NT1P3D3 Development Team. All Rights Reserved.**
 
 **USE RESPONSIBLY. USE LEGALLY. USE ETHICALLY.**

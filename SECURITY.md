@@ -1,5 +1,7 @@
 # Security Policy
 
+#### C3NT1P3D3 is maintained by a single developer. While all reports will be handled responsibly, response times may vary depending on the maintainer’s availability.
+
 **Note:** This is a solo development project maintained entirely by one person (n0m4official). All security reports are reviewed and addressed personally by me.
 
 ## Supported Versions
@@ -11,6 +13,7 @@ I release patches for security vulnerabilities in the following versions:
 | 3.1.x   | :white_check_mark: |
 | 3.0.x   | :x:                |
 | < 3.0   | :x:                |
+
 
 ## Reporting a Vulnerability
 
@@ -56,6 +59,13 @@ When reporting a vulnerability, please include:
 
 ### Response Timeline
 
+- Acknowledgment: Within 48 hours
+- Status update: Within 7 days
+- Fix timeline: Depends on severity
+   - Critical: 1–7 days
+   - High: 7–30 days
+   - Medium: 30–90 days
+   - Low: Best effort
 **As a solo developer, I will do my best to respond quickly:**
 
 - **Initial Response:** Within 48-72 hours
@@ -65,6 +75,8 @@ When reporting a vulnerability, please include:
   - High: 7-30 days
   - Medium: 30-90 days
   - Low: Best effort
+
+Note: Timelines may vary depending on maintainer availability.
 
 Please understand that as a single person maintaining this project, response times may vary based on my personal commitments.
 

@@ -645,6 +645,6 @@ For responsible disclosure or security questions:
 
 ---
 
-**Document Version:** 1.1  
+**Document Version:** 1.2  
 **Last Updated:** October 2025  
 **Next Review:** April 2026
