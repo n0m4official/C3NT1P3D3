@@ -44,8 +44,8 @@ void printBanner() {
 ║  ╚██████╗██████╔╝██║ ╚████║   ██║    ██║██║     ██████╔╝██████╔╝║
 ║   ╚═════╝╚═════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═╝╚═╝     ╚═════╝ ╚═════╝ ║
 ║                                                               ║
-║          Comprehensive Security Scanner v3.0                 ║
-║          36 Modules | MITRE ATT&CK Integrated                ║
+║          Comprehensive Security Scanner v3.2.0                 ║
+║          37 Modules | MITRE ATT&CK Integrated                ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 )" << std::endl;
