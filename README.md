@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/n0m4official/C3NT1P3D3)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/n0m4official/C3NT1P3D3)
 
 ---
 
