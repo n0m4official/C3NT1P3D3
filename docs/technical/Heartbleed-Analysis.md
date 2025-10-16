@@ -272,4 +272,5 @@ nmap -p 443 --script ssl-heartbleed localhost
 
 **Document Version:** 1.0  
 **Last Updated:** October 2025  
-**Author:** n0m4official - C3NT1P3D3 Developer
+**Author:** n0m4official - Solo Developer  
+**Note:** This module and analysis were created by one person as part of a solo development project.

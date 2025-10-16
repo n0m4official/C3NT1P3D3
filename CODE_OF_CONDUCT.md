@@ -2,7 +2,9 @@
 
 ## Our Pledge
 
-We as members, contributors, and maintainers of the C3NT1P3D3 project pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+As the creator and sole maintainer of the C3NT1P3D3 project, I pledge to make participation in this community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+
+**Note:** This is a solo development project maintained by one person (n0m4official). All community interactions are personally moderated by me.
 
 ## Our Standards
 
@@ -46,15 +48,15 @@ Given the nature of this security tool, we have additional standards:
 
 ## Enforcement
 
-Project maintainers are responsible for clarifying standards of acceptable behavior and will take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+As the sole maintainer, I am responsible for clarifying standards of acceptable behavior and will take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 
 ### Reporting
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting me directly via GitHub issues (marked as "Code of Conduct Violation"). All complaints will be reviewed and investigated promptly and fairly.
 
 ### Consequences
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, issues, and other contributions that are not aligned with this Code of Conduct, or to ban temporarily or permanently any contributor for behaviors that they deem inappropriate, threatening, offensive, or harmful.
+As the project maintainer, I have the right and responsibility to remove, edit, or reject comments, commits, code, issues, and other contributions that are not aligned with this Code of Conduct, or to ban temporarily or permanently any contributor for behaviors that I deem inappropriate, threatening, offensive, or harmful.
 
 ## Scope
 
@@ -66,8 +68,10 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 
 ## Contact
 
-For questions or concerns about this Code of Conduct, please open an issue or contact the maintainers directly.
+For questions or concerns about this Code of Conduct, please open an issue or contact me (n0m4official) directly via GitHub.
 
 ---
+
+**About This Project:** C3NT1P3D3 is developed and maintained entirely by one person as a solo project. I personally review all community interactions and enforce this Code of Conduct.
 
 **Remember: With great power comes great responsibility. Always act ethically and legally.**

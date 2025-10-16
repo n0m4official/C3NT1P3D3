@@ -1,14 +1,18 @@
 # C3NT1P3D3 End-User License Agreement (EULA)
 
 **Effective Date:** October 11, 2025  
-**Version:** 1.1  
-**Governing Law:** Laws of Canada and the Province of Alberta
+**Version:** 1.2  
+**Governing Law:** Laws of Canada and the Province of Alberta  
+**Jurisdiction:** Court of Queen's Bench of Alberta  
+**Statute References:** Criminal Code of Canada (R.S.C., 1985, c. C-46), Personal Information Protection Act (S.A. 2003, c. P-6.5)
 
 ---
 
 ## IMPORTANT - READ CAREFULLY
 
-This End-User License Agreement ("Agreement") is a legal agreement between you (either an individual or a single entity, "User" or "You") and the C3NT1P3D3 development team ("Licensor," "We," "Us," or "Our") for the C3NT1P3D3 security scanning software, including all associated documentation, source code, and materials (collectively, the "Software").
+This End-User License Agreement ("Agreement") is a legal agreement between you (either an individual or a single entity, "User" or "You") and n0m4official, the sole developer and maintainer of C3NT1P3D3 ("Licensor," "I," "Me," or "My") for the C3NT1P3D3 security scanning software, including all associated documentation, source code, and materials (collectively, the "Software").
+
+**Important:** This software is developed and maintained entirely by one person (n0m4official) as a solo project.
 
 **BY DOWNLOADING, INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO NOT DOWNLOAD, INSTALL, OR USE THE SOFTWARE.**
 
@@ -105,7 +109,7 @@ You acknowledge and agree that:
 ## 5. LIMITATION OF LIABILITY
 
 ### 5.1 Maximum Liability
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL LICENSOR, ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, CONTRIBUTORS, OR ANY ASSOCIATED PARTIES BE LIABLE FOR ANY:
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL LICENSOR (n0m4official, sole developer), CONTRIBUTORS, OR ANY ASSOCIATED PARTIES BE LIABLE FOR ANY:
 
 (a) **Direct Damages:** Including but not limited to loss of data, loss of profits, loss of revenue, business interruption, system damage, hardware failure, software corruption, or any other direct financial loss;
 
@@ -133,7 +137,7 @@ Some jurisdictions do not allow the exclusion or limitation of incidental or con
 ## 6. INDEMNIFICATION
 
 ### 6.1 User Indemnification
-You agree to indemnify, defend, and hold harmless Licensor, its affiliates, officers, directors, employees, agents, contributors, licensors, and any associated parties from and against any and all:
+You agree to indemnify, defend, and hold harmless Licensor (n0m4official, sole developer), contributors, and any associated parties from and against any and all:
 
 (a) Claims, demands, actions, suits, or proceedings (whether civil, criminal, administrative, or investigative);  
 (b) Losses, damages, liabilities, judgments, settlements, costs, and expenses (including but not limited to reasonable attorneys' fees, expert witness fees, court costs, and investigation expenses);  
@@ -204,10 +208,19 @@ You agree to immediately report to Licensor:
 ## 9. GENERAL PROVISIONS
 
 ### 9.1 Governing Law
-This Agreement shall be governed by and construed in accordance with the laws of Canada and the Province of Alberta, without regard to its conflict of law provisions. This Agreement is subject to the Criminal Code of Canada, the Personal Information Protection Act (PIPA) of Alberta, and all other applicable federal and provincial legislation.
+This Agreement shall be governed by and construed in accordance with the laws of Canada and the Province of Alberta, without regard to its conflict of law provisions. This Agreement is subject to:
+- Criminal Code of Canada (R.S.C., 1985, c. C-46), particularly Section 342.1
+- Personal Information Protection Act (S.A. 2003, c. P-6.5)
+- Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)
+- All other applicable federal and provincial legislation
 
 ### 9.2 Jurisdiction and Venue
-Any legal action or proceeding arising under this Agreement shall be brought exclusively in the courts of competent jurisdiction located in Alberta, Canada. You hereby irrevocably consent to the personal jurisdiction and venue of such courts and waive any objection to such jurisdiction or venue.
+Any legal action or proceeding arising under this Agreement shall be brought exclusively in the Court of Queen's Bench of Alberta or other courts of competent jurisdiction located in Alberta, Canada. You hereby irrevocably and unconditionally:
+(a) Submit to the personal jurisdiction of such courts;
+(b) Consent to service of process by registered mail or any other method permitted by Alberta law;
+(c) Waive any objection to venue in such courts;
+(d) Waive any claim that such courts are an inconvenient forum;
+(e) Agree that any judgment rendered by such courts shall be binding and enforceable.
 
 ### 9.3 Severability
 If any provision of this Agreement is held to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect.
@@ -255,7 +268,7 @@ BY USING THIS SOFTWARE, YOU EXPLICITLY ACKNOWLEDGE AND AGREE THAT:
 
 (b) **Severe Penalties:** You understand that criminal penalties may include imprisonment for up to 10 years in Canada, substantial fines, criminal record, and civil liability;
 
-(c) **No Protection from Licensor:** You understand that Licensor cannot and will not protect You from criminal prosecution or civil liability resulting from Your unauthorized or illegal use;
+(c) **No Protection from Licensor:** You understand that Licensor (n0m4official, sole developer) cannot and will not protect You from criminal prosecution or civil liability resulting from Your unauthorized or illegal use;
 
 (d) **Authorization is Essential:** You understand that You MUST obtain explicit written authorization from system owners before using this Software for any testing or scanning activities;
 
@@ -266,7 +279,7 @@ BY USING THIS SOFTWARE, YOU EXPLICITLY ACKNOWLEDGE AND AGREE THAT:
 (g) **Informed Decision:** You confirm that You are making an informed decision to use this Software with full knowledge of the legal risks involved.
 
 ### 10.4 Waiver of Claims Against Licensor
-You hereby irrevocably and unconditionally waive, release, and forever discharge Licensor and all associated parties from any and all claims, demands, actions, causes of action, suits, damages, losses, and liabilities of any kind arising from or related to Your use of the Software, including but not limited to claims based on:
+You hereby irrevocably and unconditionally waive, release, and forever discharge Licensor (n0m4official, sole developer) and all associated parties from any and all claims, demands, actions, causes of action, suits, damages, losses, and liabilities of any kind arising from or related to Your use of the Software, including but not limited to claims based on:
 
 (a) Criminal prosecution or conviction;  
 (b) Civil liability or judgment;  

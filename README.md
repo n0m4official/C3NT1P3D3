@@ -1,6 +1,7 @@
 # C3NT1P3D3 Security Scanner Framework
 
-**A comprehensive vulnerability detection framework with MITRE ATT&CK integration**
+**A comprehensive vulnerability detection framework with MITRE ATT&CK integration**  
+**Developed entirely by a single person as a solo project**
 
 [![Release](https://img.shields.io/badge/release-v3.1.0--legendary-blue.svg)](https://github.com/n0m4official/C3NT1P3D3/releases)
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/n0m4official/C3NT1P3D3)
@@ -16,7 +17,9 @@
 
 ## Overview
 
-C3NT1P3D3 is an open-source security scanning framework designed for authorized penetration testing and security research. Built with modern C++17, it provides 37 vulnerability detection modules that integrate with the MITRE ATT&CK framework for threat intelligence reporting.
+C3NT1P3D3 is an open-source security scanning framework designed for authorized penetration testing and security research. Built with modern C++17 by a single developer, it provides 37 vulnerability detection modules that integrate with the MITRE ATT&CK framework for threat intelligence reporting.
+
+**This is a solo development project** - all code, documentation, and features have been created and maintained by one person (n0m4official).
 
 This project serves the cybersecurity community by offering:
 - **Educational resources** for security students and researchers
@@ -394,7 +397,7 @@ C3NT1P3D3/
 
 ## Contributing
 
-We welcome contributions from the security community! Here's how you can help:
+As a solo development project, I welcome contributions from the security community! Here's how you can help:
 
 ### Areas for Contribution
 
@@ -411,6 +414,8 @@ We welcome contributions from the security community! Here's how you can help:
 3. Implement your changes with appropriate tests
 4. Follow the existing code style and safety principles
 5. Submit a pull request with a clear description
+
+**Note:** As the sole maintainer, I review all contributions personally. Please be patient with response times.
 
 ### Code of Conduct
 
@@ -432,11 +437,13 @@ We welcome contributions from the security community! Here's how you can help:
 
 ### Response Times
 
-This is a community-driven open-source project. Response times vary based on contributor availability:
+**This is a solo development project maintained by one person.** Response times vary based on my availability:
 
 - **Security Issues:** Prioritized and addressed as quickly as possible
 - **Bug Reports:** Typically reviewed within one week
-- **Feature Requests:** Evaluated based on community interest and project roadmap
+- **Feature Requests:** Evaluated based on feasibility and project roadmap
+
+Please be patient - I maintain this project in my personal time while balancing other commitments.
 
 ---
 
@@ -492,9 +499,11 @@ Yes, under the MIT License terms. However, you must still obtain proper authoriz
 - **C++ Community** - For excellent tools, libraries, and best practices
 - **Security Research Community** - For vulnerability disclosure and research
 
-### Inspiration
+### About This Project
 
-This project was inspired by the need for transparent, educational security tools that help practitioners understand vulnerability detection techniques while maintaining the highest ethical and legal standards.
+This project was created and is maintained entirely by one person (n0m4official) as a solo development effort. It was inspired by the need for transparent, educational security tools that help practitioners understand vulnerability detection techniques while maintaining the highest ethical and legal standards.
+
+Every line of code, every module, and every piece of documentation has been written by a single developer dedicated to advancing cybersecurity education and defensive security research.
 
 ---
 
@@ -527,7 +536,7 @@ See the [LICENSE](LICENSE) file for complete terms.
 
 ## Final Notes
 
-C3NT1P3D3 represents a commitment to transparent, ethical security research and education. By making professional-grade vulnerability detection tools available to the community, we hope to:
+C3NT1P3D3 represents my personal commitment to transparent, ethical security research and education. By making professional-grade vulnerability detection tools available to the community, I hope to:
 
 - **Educate** the next generation of security professionals
 - **Improve** overall security through better understanding of vulnerabilities
@@ -540,4 +549,4 @@ Thank you for using C3NT1P3D3 responsibly and contributing to a more secure digi
 
 ---
 
-*Made with dedication to cybersecurity education and responsible disclosure.*
+*Developed entirely by n0m4official - A solo project made with dedication to cybersecurity education and responsible disclosure.*

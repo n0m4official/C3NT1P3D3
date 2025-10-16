@@ -1,8 +1,10 @@
 # Security Policy
 
+**Note:** This is a solo development project maintained entirely by one person (n0m4official). All security reports are reviewed and addressed personally by me.
+
 ## Supported Versions
 
-We release patches for security vulnerabilities in the following versions:
+I release patches for security vulnerabilities in the following versions:
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -12,7 +14,7 @@ We release patches for security vulnerabilities in the following versions:
 
 ## Reporting a Vulnerability
 
-We take the security of C3NT1P3D3 seriously. If you discover a security vulnerability, please follow responsible disclosure practices.
+I take the security of C3NT1P3D3 seriously. If you discover a security vulnerability, please follow responsible disclosure practices.
 
 ### What to Report
 
@@ -37,7 +39,7 @@ Instead, please report them privately:
    - Fill out the form with details
 
 2. **Alternative:** Open a private issue
-   - Contact maintainers directly
+   - Contact me (the sole maintainer) directly
    - Use encrypted communication if possible
 
 ### What to Include
@@ -54,21 +56,25 @@ When reporting a vulnerability, please include:
 
 ### Response Timeline
 
-- **Initial Response:** Within 48 hours
+**As a solo developer, I will do my best to respond quickly:**
+
+- **Initial Response:** Within 48-72 hours
 - **Status Update:** Within 7 days
-- **Fix Timeline:** Depends on severity
-  - Critical: 1-7 days
+- **Fix Timeline:** Depends on severity and my availability
+  - Critical: 1-7 days (prioritized)
   - High: 7-30 days
   - Medium: 30-90 days
   - Low: Best effort
 
+Please understand that as a single person maintaining this project, response times may vary based on my personal commitments.
+
 ### Disclosure Policy
 
-- We follow coordinated disclosure
-- We'll work with you to understand and validate the issue
-- We'll develop a fix and test it thoroughly
-- We'll credit you in the security advisory (if desired)
-- We'll publish the advisory after the fix is released
+- I follow coordinated disclosure
+- I'll work with you to understand and validate the issue
+- I'll develop a fix and test it thoroughly
+- I'll credit you in the security advisory (if desired)
+- I'll publish the advisory after the fix is released
 
 ### Security Best Practices for Users
 
@@ -159,9 +165,11 @@ It does NOT apply to:
 If you have questions about this security policy:
 
 - Open a GitHub issue (for non-sensitive questions)
-- Contact maintainers privately (for sensitive matters)
+- Contact me privately via GitHub Security Advisories (for sensitive matters)
 - Review our [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ---
 
 **Thank you for helping keep C3NT1P3D3 and its users safe!**
+
+**About the Maintainer:** This project is developed and maintained entirely by n0m4official as a solo effort. I personally review all security reports and develop all patches.

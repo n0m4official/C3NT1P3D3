@@ -5,6 +5,7 @@
 #include <ctime>
 #include "../include/core/ProductionScanner.h"
 #include "../include/core/ConfigurationManager.h"
+#include "../include/core/LegalAgreementManager.h"
 #include "../include/IPRangeValidator.h"
 
 using namespace C3NT1P3D3;
@@ -353,6 +354,35 @@ int main(int argc, char* argv[]) {
         printHelp();
         return options.target_range.empty() ? 1 : 0;
     }
+    
+    // ============================================================================
+    // MANDATORY LEGAL AGREEMENT ACCEPTANCE
+    // ============================================================================
+    // Check if user has accepted legal agreements (TOS, EULA, Disclaimer)
+    // This is NON-NEGOTIABLE and required under Alberta/Canadian law
+    if (!LegalAgreementManager::hasAcceptedAgreements()) {
+        std::cout << "\n";
+        std::cout << "╔══════════════════════════════════════════════════════════════════════════════╗\n";
+        std::cout << "║                    LEGAL AGREEMENTS ACCEPTANCE REQUIRED                      ║\n";
+        std::cout << "╚══════════════════════════════════════════════════════════════════════════════╝\n";
+        std::cout << "\n";
+        std::cout << "Before using C3NT1P3D3, you MUST read and accept the legal agreements.\n";
+        std::cout << "This is required under Alberta and Canadian law.\n";
+        std::cout << "\n";
+        
+        if (!LegalAgreementManager::promptForAgreementAcceptance()) {
+            std::cout << "\n⚠️  Legal agreements NOT accepted. Cannot proceed.\n";
+            std::cout << "   You must accept the Terms of Service, EULA, and Disclaimer to use this software.\n";
+            std::cout << "\n";
+            return 1; // Exit if user declines
+        }
+        
+        std::cout << "\n✓ Legal agreements accepted. Proceeding with scan...\n\n";
+    } else {
+        std::cout << "\n✓ Legal agreements previously accepted and still valid.\n";
+        std::cout << "  (Acceptance recorded and governed by Alberta/Canadian law)\n\n";
+    }
+    // ============================================================================
     
     std::cout << "Target Range: " << options.target_range << std::endl;
     if (options.enable_simulation) {

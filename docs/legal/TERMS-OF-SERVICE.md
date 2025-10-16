@@ -1,8 +1,10 @@
 # C3NT1P3D3 Terms of Service
 
 **Effective Date:** October 11, 2025  
-**Version:** 1.1  
-**Jurisdiction:** Canada and the Province of Alberta
+**Version:** 1.2  
+**Jurisdiction:** Court of Queen's Bench of Alberta, Canada  
+**Governing Law:** Laws of Alberta and Canada  
+**Statute References:** Criminal Code of Canada (R.S.C., 1985, c. C-46), Personal Information Protection Act (S.A. 2003, c. P-6.5)
 
 ---
 
@@ -10,7 +12,9 @@
 
 By accessing, downloading, installing, or using C3NT1P3D3 (CENTIPEDE) ("Software"), you ("User," "You," or "Your") agree to be bound by these Terms of Service ("Terms"). If You do not agree to these Terms, You must not use the Software.
 
-These Terms constitute a legally binding agreement between You and the C3NT1P3D3 development team ("We," "Us," or "Our").
+These Terms constitute a legally binding agreement between You and n0m4official, the sole developer and maintainer of C3NT1P3D3 ("I," "Me," or "My").
+
+**Important:** This software is developed and maintained entirely by one person (n0m4official) as a solo project.
 
 ---
 
@@ -31,7 +35,7 @@ These Terms constitute a legally binding agreement between You and the C3NT1P3D3
 ## 3. LICENSE AND RESTRICTIONS
 
 ### 3.1 Grant of License
-Subject to these Terms, We grant You a limited, non-exclusive, non-transferable, revocable license to use the Software for authorized security testing purposes only.
+Subject to these Terms, I grant You a limited, non-exclusive, non-transferable, revocable license to use the Software for authorized security testing purposes only.
 
 ### 3.2 Restrictions
 You shall NOT:
@@ -108,7 +112,7 @@ You expressly agree NOT to use the Software for:
 ## 6. DISCLAIMERS
 
 ### 6.1 No Warranty
-THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING:
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. I DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING:
 
 - Merchantability
 - Fitness for a particular purpose
@@ -117,7 +121,7 @@ THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. WE DISCLAIM ALL W
 - Error-free operation
 
 ### 6.2 No Guarantee
-We do not guarantee that:
+I do not guarantee that:
 
 (a) The Software will detect all vulnerabilities;  
 (b) The Software will operate without errors;  
@@ -138,7 +142,7 @@ You acknowledge that:
 ## 7. LIMITATION OF LIABILITY
 
 ### 7.1 No Liability for Damages
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR:
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, I (n0m4official, sole developer) SHALL NOT BE LIABLE FOR:
 
 (a) **Direct Damages:**
    - System damage or data loss
@@ -159,17 +163,17 @@ TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR:
    - Legal fees
 
 ### 7.2 Maximum Liability
-Our total aggregate liability shall not exceed CAD $50.00 or the amount You paid for the Software, whichever is less.
+My total aggregate liability shall not exceed CAD $50.00 or the amount You paid for the Software, whichever is less.
 
 ### 7.3 Basis of the Bargain
-You acknowledge that these limitations are an essential basis of the bargain and that We would not provide the Software without these limitations.
+You acknowledge that these limitations are an essential basis of the bargain and that I would not provide the Software without these limitations.
 
 ---
 
 ## 8. INDEMNIFICATION
 
 ### 8.1 Your Indemnification Obligation
-You agree to indemnify, defend, and hold Us harmless from any claims, damages, losses, liabilities, and expenses (including attorneys' fees) arising from:
+You agree to indemnify, defend, and hold Me (n0m4official, sole developer) harmless from any claims, damages, losses, liabilities, and expenses (including attorneys' fees) arising from:
 
 (a) Your use or misuse of the Software;  
 (b) Your violation of these Terms;  
@@ -179,7 +183,7 @@ You agree to indemnify, defend, and hold Us harmless from any claims, damages, l
 (f) Your breach of any representation or warranty.
 
 ### 8.2 Defense Rights
-We reserve the right to assume exclusive defense and control of any matter subject to Your indemnification. You agree to cooperate fully in such defense.
+I reserve the right to assume exclusive defense and control of any matter subject to Your indemnification. You agree to cooperate fully in such defense.
 
 ---
 
@@ -207,7 +211,7 @@ You are solely responsible for:
 ## 10. INTELLECTUAL PROPERTY
 
 ### 10.1 Ownership
-We retain all rights, title, and interest in the Software, including all intellectual property rights.
+I (n0m4official) retain all rights, title, and interest in the Software, including all intellectual property rights.
 
 ### 10.2 Open Source License
 The Software is also licensed under the MIT License. You must comply with both these Terms and the MIT License. In the event of a conflict between this Terms of Service and the MIT License, the more restrictive provision shall apply
@@ -219,8 +223,8 @@ The Software is also licensed under the MIT License. You must comply with both t
 
 ## 11. TERMINATION
 
-### 11.1 Termination by Us
-We may terminate Your access immediately if:
+### 11.1 Termination by Me
+I may terminate Your access immediately if:
 
 (a) You breach these Terms;  
 (b) You use the Software illegally;  
@@ -247,10 +251,20 @@ Upon termination:
 ## 12. DISPUTE RESOLUTION
 
 ### 12.1 Governing Law
-These Terms are governed by and construed in accordance with the laws of Canada and the Province of Alberta, without regard to conflict of law provisions. These Terms are subject to the Criminal Code of Canada, the Personal Information Protection Act (PIPA) of Alberta, and all other applicable federal and provincial legislation.
+These Terms are governed by and construed in accordance with the laws of Canada and the Province of Alberta, without regard to conflict of law provisions. These Terms are subject to:
+- Criminal Code of Canada (R.S.C., 1985, c. C-46), particularly Section 342.1 (Unauthorized use of computer)
+- Personal Information Protection Act (S.A. 2003, c. P-6.5)
+- Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)
+- All other applicable federal and provincial legislation
 
-### 12.2 Jurisdiction
-Any disputes shall be resolved exclusively in the courts of competent jurisdiction located in Alberta, Canada. You hereby irrevocably consent to the personal jurisdiction and venue of such courts and waive any objection to such jurisdiction or venue.
+### 12.2 Jurisdiction and Venue
+Any disputes, claims, or legal proceedings arising from or related to these Terms or Your use of the Software shall be resolved exclusively in the Court of Queen's Bench of Alberta or other courts of competent jurisdiction located in Alberta, Canada. You hereby irrevocably and unconditionally:
+(a) Submit to the exclusive personal jurisdiction of such courts;
+(b) Consent to service of process in accordance with Alberta Rules of Court;
+(c) Waive any objection to venue in such courts;
+(d) Waive any claim that such courts constitute an inconvenient forum;
+(e) Agree that judgments of such courts are final, binding, and enforceable;
+(f) Waive any right to trial by jury if applicable.
 
 ### 12.3 Arbitration
 Before filing any lawsuit, parties agree to attempt good-faith negotiation for 30 days.
@@ -275,13 +289,13 @@ Failure to enforce any provision does not waive Our right to enforce it later.
 You may not assign these Terms. We may assign without restriction.
 
 ### 13.5 Amendments
-We may modify these Terms at any time. Continued use constitutes acceptance of modifications.
+I may modify these Terms at any time. Continued use constitutes acceptance of modifications.
 
 ### 13.6 Notices
 Notices shall be provided via GitHub repository updates or issues.
 
 ### 13.7 Force Majeure
-We are not liable for failures due to causes beyond Our reasonable control.
+I am not liable for failures due to causes beyond my reasonable control.
 
 ---
 

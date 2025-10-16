@@ -101,4 +101,4 @@ Copy-Item build\Release\*.exe release\C3NT1P3D3-v3.0.0-legendary\bin\ -Force
 
 ---
 
-**Made with ❤️ by n0m4official**
+**Developed entirely by n0m4official - A solo project**

@@ -619,7 +619,7 @@ For responsible disclosure or security questions:
 - GitHub Issues: https://github.com/n0m4official/C3NT1P3D3/issues
 - Mark as: Security vulnerability
 - Response time: 48-72 hours
-- Note: This is a solo developer project - please be patient
+- **Note:** This is a solo developer project maintained entirely by one person (n0m4official) - please be patient with response times
 
 ---
 

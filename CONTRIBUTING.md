@@ -1,6 +1,8 @@
 # Contributing to C3NT1P3D3
 
-Thank you for your interest in contributing to C3NT1P3D3! We welcome contributions from the security community to help improve this educational security framework.
+Thank you for your interest in contributing to C3NT1P3D3! As a solo development project, I welcome contributions from the security community to help improve this educational security framework.
+
+**Important:** This project is developed and maintained entirely by one person (n0m4official). All contributions are reviewed personally by me, so please be patient with response times.
 
 ## Table of Contents
 
@@ -13,7 +15,7 @@ Thank you for your interest in contributing to C3NT1P3D3! We welcome contributio
 
 ## Code of Conduct
 
-This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
+This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to me (the project maintainer) via GitHub issues.
 
 ## Getting Started
 
@@ -70,7 +72,7 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 **Do not** report security vulnerabilities through public GitHub issues. Instead:
 
 1. Review our [Security Policy](SECURITY.md)
-2. Report privately to the maintainers
+2. Report privately to me (the sole maintainer) via GitHub Security Advisories
 3. Allow time for responsible disclosure
 
 ## Development Guidelines
@@ -139,11 +141,13 @@ All detection modules must:
 
 ### Review Process
 
-1. Maintainers will review your PR
+1. I will review your PR personally (as the sole maintainer)
 2. Feedback may be provided for improvements
 3. Make requested changes if needed
 4. Once approved, PR will be merged
 5. You'll be credited in release notes
+
+**Note:** As a solo developer, I review PRs in my personal time. Please be patient - response times may vary from a few days to a couple of weeks depending on my availability.
 
 ## Adding New Modules
 
@@ -205,6 +209,8 @@ If you have questions about contributing:
 - Check existing documentation
 - Review closed issues for similar questions
 
+**Note:** I respond to questions personally, so please allow time for a response.
+
 ## Recognition
 
 Contributors will be recognized in:
@@ -213,8 +219,10 @@ Contributors will be recognized in:
 - Project documentation
 - GitHub contributors page
 
-Thank you for helping make C3NT1P3D3 better!
+Thank you for helping make C3NT1P3D3 better! Your contributions help this solo project grow and serve the security community.
 
 ---
 
 **Remember:** All contributions must comply with legal and ethical standards for security research.
+
+**About the Maintainer:** This project is developed and maintained entirely by n0m4official as a solo effort. Every contribution is personally reviewed and appreciated.

@@ -14,7 +14,7 @@ C3NT1P3D3 (the "Software") is provided for **EDUCATIONAL, RESEARCH, AND AUTHORIZ
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
 
-IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER (n0m4official, the sole developer) OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
@@ -22,13 +22,13 @@ IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE L
 
 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:
 
-1. **NO LIABILITY FOR DAMAGES:** The authors, contributors, and distributors of this Software shall NOT be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this Software.
+1. **NO LIABILITY FOR DAMAGES:** The author (n0m4official, sole developer), contributors, and distributors of this Software shall NOT be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this Software.
 
-2. **NO LIABILITY FOR MISUSE:** The authors, contributors, and distributors shall NOT be held responsible or liable for any misuse, illegal use, or unauthorized use of this Software by any party.
+2. **NO LIABILITY FOR MISUSE:** The author (n0m4official), contributors, and distributors shall NOT be held responsible or liable for any misuse, illegal use, or unauthorized use of this Software by any party.
 
 3. **NO LIABILITY FOR LEGAL CONSEQUENCES:** Users are solely responsible for any legal consequences arising from their use of this Software, including but not limited to criminal prosecution, civil liability, fines, penalties, or damages.
 
-4. **MAXIMUM LIABILITY CAP:** In no event shall the total aggregate liability of the authors, contributors, or distributors exceed CAD $50.00 or the amount paid for the Software, whichever is less.
+4. **MAXIMUM LIABILITY CAP:** In no event shall the total aggregate liability of the author (n0m4official), contributors, or distributors exceed CAD $50.00 or the amount paid for the Software, whichever is less.
 
 ---
 
@@ -59,7 +59,7 @@ BY USING THIS SOFTWARE, YOU ACKNOWLEDGE AND AGREE THAT:
 
 6. **Full Responsibility:** You accept FULL responsibility for your actions and any consequences resulting from your use of this Software.
 
-7. **Indemnification:** You agree to indemnify, defend, and hold harmless the authors, contributors, and distributors from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use or misuse of this Software.
+7. **Indemnification:** You agree to indemnify, defend, and hold harmless the author (n0m4official, sole developer), contributors, and distributors from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use or misuse of this Software.
 
 ---
 
@@ -194,7 +194,7 @@ Users who modify this Software:
 1. **Retain Disclaimers:** Must retain all legal notices and disclaimers
 2. **Accept Responsibility:** Accept full responsibility for their modifications
 3. **No Warranty:** Provide no warranty for their modifications
-4. **Indemnify Authors:** Indemnify original authors from any claims arising from modifications
+4. **Indemnify Author:** Indemnify the original author (n0m4official) from any claims arising from modifications
 
 ---
 
@@ -237,7 +237,7 @@ If misuse involves criminal activity, report to appropriate law enforcement:
 4. Agree to use the Software only for authorized purposes
 5. Agree to comply with all applicable laws
 6. Accept full responsibility for your actions
-7. Agree to indemnify the authors from your misuse
+7. Agree to indemnify the author (n0m4official) from your misuse
 8. Acknowledge that you have been warned of legal risks
 
 **IF YOU DO NOT ACCEPT THESE TERMS, DO NOT USE THIS SOFTWARE.**
@@ -311,4 +311,5 @@ This disclaimer, together with the End-User License Agreement (EULA), Terms of S
 
 ---
 
-**© 2025 C3NT1P3D3 Development Team. All Rights Reserved.**
+**© 2025 n0m4official. All Rights Reserved.**  
+**This is a solo development project created and maintained by one person.**

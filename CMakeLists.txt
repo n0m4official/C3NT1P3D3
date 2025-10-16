@@ -195,6 +195,7 @@ add_executable(C3NT1P3D3-Comprehensive
     src/C3NT1P3D3-Production.cpp
     src/core/ConfigurationManager.cpp
     src/core/ProductionScanner.cpp
+    src/LegalAgreementManager.cpp
     src/simulation/SimulationEngine.cpp
     src/IPRangeValidator.cpp
     src/VulnerabilityDatabase.cpp
