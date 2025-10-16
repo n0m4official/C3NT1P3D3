@@ -24,6 +24,8 @@ This project serves the cybersecurity community by offering:
 - **Research capabilities** for vulnerability analysis
 - **Framework foundation** for custom security tool development
 
+Note: C3NT1P3D3 is maintained by a single developer.
+
 ### Key Capabilities
 
 - **37 Vulnerability Detection Modules** covering network, web, cloud, and system security
