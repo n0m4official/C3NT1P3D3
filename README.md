@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/n0m4official/C3NT1P3D3)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/n0m4official/C3NT1P3D3)
 
 ---
 
@@ -373,7 +374,7 @@ C3NT1P3D3/
 
 ## Development Status
 
-### Current Release (v3.1.0-legendary)
+### Current Release (v3.2.0-legendary)
 
 ✅ **Completed:**
 - 37 vulnerability detection modules with real protocol implementations
