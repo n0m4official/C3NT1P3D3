@@ -3,7 +3,7 @@
 **Effective Date:** October 11, 2025  
 **Version:** 1.2  
 **Governing Law:** Laws of Canada and the Province of Alberta  
-**Jurisdiction:** Court of Queen's Bench of Alberta  
+**Jurisdiction:** Court of King's Bench of Alberta  
 **Statute References:** Criminal Code of Canada (R.S.C., 1985, c. C-46), Personal Information Protection Act (S.A. 2003, c. P-6.5)
 
 ---
@@ -313,9 +313,9 @@ For questions about this Agreement, contact:
 
 ---
 
-**Document Version:** 1.1  
+**Document Version:** 1.2  
 **Effective Date:** October 11, 2025  
-**Last Updated:** October 15, 2025  
+**Last Updated:** October 16, 2025  
 **Next Review:** October 11, 2026
 
 ---

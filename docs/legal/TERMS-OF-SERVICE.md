@@ -2,7 +2,7 @@
 
 **Effective Date:** October 11, 2025  
 **Version:** 1.2  
-**Jurisdiction:** Court of Queen's Bench of Alberta, Canada  
+**Jurisdiction:** Court of King's Bench of Alberta, Canada  
 **Governing Law:** Laws of Alberta and Canada  
 **Statute References:** Criminal Code of Canada (R.S.C., 1985, c. C-46), Personal Information Protection Act (S.A. 2003, c. P-6.5)
 
@@ -377,9 +377,9 @@ This Software is a powerful security tool. With great power comes great responsi
 
 ---
 
-**Document Version:** 1.1  
+**Document Version:** 1.2  
 **Effective Date:** October 11, 2025  
-**Last Updated:** October 15, 2025  
+**Last Updated:** October 16, 2025  
 **Next Review:** October 11, 2026
 
 ---

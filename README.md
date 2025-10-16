@@ -3,7 +3,7 @@
 **A comprehensive vulnerability detection framework with MITRE ATT&CK integration**  
 **Developed entirely by a single person as a solo project**
 
-[![Release](https://img.shields.io/badge/release-v3.1.0--legendary-blue.svg)](https://github.com/n0m4official/C3NT1P3D3/releases)
+[![Release](https://img.shields.io/badge/release-v3.2.0--legendary-blue.svg)](https://github.com/n0m4official/C3NT1P3D3/releases)
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/n0m4official/C3NT1P3D3)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
@@ -528,8 +528,8 @@ See the [LICENSE](LICENSE) file for complete terms.
 
 ## Project Information
 
-**Version:** 3.1.0-legendary  
-**Release Date:** October 14, 2025  
+**Version:** 3.2.0-legendary  
+**Release Date:** October 16, 2025  
 **Author:** n0m4official  
 **Repository:** https://github.com/n0m4official/C3NT1P3D3  
 **License:** MIT with Safety Requirements

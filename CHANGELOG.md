@@ -2,6 +2,19 @@
 
 All notable changes to C3NT1P3D3 will be documented in this file.
 
+## [3.2.0] - 2025-01-16
+
+### Added
+- IP range validator
+
+### Changed
+- Updated module count from 37 to 38
+
+### Technical Notes
+- 1 new module fully implemented (IP range validator)
+- 1 additional module stub added for future development
+- All modules compile successfully on Windows ARM64
+
 ## [3.1.0] - 2025-01-14
 
 ### Added

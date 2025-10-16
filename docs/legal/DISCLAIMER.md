@@ -304,9 +304,9 @@ This disclaimer, together with the End-User License Agreement (EULA), Terms of S
 
 ---
 
-**Document Version:** 1.0  
+**Document Version:** 1.2  
 **Effective Date:** October 11, 2025  
-**Last Updated:** October 11, 2025  
+**Last Updated:** October 16, 2025  
 **Next Review:** October 11, 2026
 
 ---
