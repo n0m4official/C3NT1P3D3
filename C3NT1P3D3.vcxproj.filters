@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Core">
@@ -16,74 +16,441 @@
     <Filter Include="Modules\Tier 5">
       <UniqueIdentifier>{b160aa6b-6d62-4c0e-ab76-6ed092e48d4e}</UniqueIdentifier>
     </Filter>
+
+    <!-- Added filters for repo layout -->
+    <Filter Include="include">
+      <UniqueIdentifier>{A1A3D9C0-0001-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\core">
+      <UniqueIdentifier>{A1A3D9C0-0002-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\mitre">
+      <UniqueIdentifier>{A1A3D9C0-0003-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\simulation">
+      <UniqueIdentifier>{A1A3D9C0-0004-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\security">
+      <UniqueIdentifier>{A1A3D9C0-0005-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{B2B3E8D0-0001-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{B2B3E8D0-0002-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mitre">
+      <UniqueIdentifier>{B2B3E8D0-0003-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\simulation">
+      <UniqueIdentifier>{B2B3E8D0-0004-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\simulation\modules">
+      <UniqueIdentifier>{B2B3E8D0-0005-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{C3C3E8F0-0001-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{D4D4E900-0001-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="docs">
+      <UniqueIdentifier>{E5E5EA10-0001-4D11-ABCD-001122334455}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
+
   <ItemGroup>
-    <ClCompile Include="ModuleManager.cpp">
-      <Filter>Core</Filter>
+    <!-- Core source files -->
+    <ClCompile Include="src\core\ConfigurationManager.cpp">
+      <Filter>src\core</Filter>
     </ClCompile>
-    <ClCompile Include="CoreEngine.cpp">
-      <Filter>Core</Filter>
+    <ClCompile Include="src\core\ProductionScanner.cpp">
+      <Filter>src\core</Filter>
     </ClCompile>
-    <ClCompile Include="C3NT1P3D3.cpp" />
-	<ClCompile Include="C3NT1P3D3_Comprehensive.cpp" />
-    <ClCompile Include="MockTarget.cpp">
-      <Filter>Targets</Filter>
+    <ClCompile Include="src\core\CoreEngine.cpp">
+      <Filter>src\core</Filter>
     </ClCompile>
-    <ClCompile Include="EternalBlueDetector.cpp">
-      <Filter>Modules\Tier 5</Filter>
+
+    <!-- Main product binaries / top-level -->
+    <ClCompile Include="src\C3NT1P3D3.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="BlueKeepDetector.cpp">
-      <Filter>Modules\Tier 5</Filter>
+    <ClCompile Include="src\C3NT1P3D3-Production.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="DirectoryTraversalDetector.cpp" />
-    <ClCompile Include="FTPAnonymousDetector.cpp" />
-    <ClCompile Include="HeartbleedDetector.cpp" />
-    <ClCompile Include="Log4ShellDetector.cpp" />
-    <ClCompile Include="NetworkScanner.cpp" />
-    <ClCompile Include="SafeScanner.cpp" />
-    <ClCompile Include="ShellshockDetector.cpp" />
-    <ClCompile Include="SQLInjectionDetector.cpp" />
-    <ClCompile Include="SSHBruteForceDetector.cpp" />
-    <ClCompile Include="XSSDetector.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="IModule.h">
-      <Filter>Core</Filter>
+    <ClCompile Include="src\C3NT1P3D3-Production.cpp.bak">
+      <Filter>src</Filter>
+    </ClCompile>
+
+    <!-- Mitre -->
+    <ClCompile Include="src\mitre\AttackMapper.cpp">
+      <Filter>src\mitre</Filter>
+    </ClCompile>
+
+    <!-- Simulation & detectors: include all module sources -->
+    <ClCompile Include="src\simulation\SimulationEngine.cpp">
+      <Filter>src\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\APIRateLimitDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\BlueKeepDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\CORSDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\CSRFDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\CloudMetadataDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\CommandInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\ComprehensiveScanner.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\ContainerEscapeDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\DeserializationDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\DirectoryTraversalDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\EternalBlueDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\FTPAnonymousDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\GraphQLInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\HTTPRequestSmugglingDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\HeartbleedDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\HostHeaderInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\IDORDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\IPRangeValidator.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\JWTDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\LDAPInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\Log4ShellDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\MockTarget.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\ModuleManager.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\ModuleRegistry.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\NetworkScanner.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\NoSQLInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\OAuthOIDCDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\PrototypePollutionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\RaceConditionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\SNMPWeakCommunityDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\SQLInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\SSHBruteForceDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\SSRFDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\SSTIDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\SafeScanner.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\ShellshockDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\SubdomainTakeoverDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\TelnetCleartextDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\VulnerabilityDatabase.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\WeakCipherDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\WebSocketVulnDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\XMLInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\XPathInjectionDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\XSSDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\XXEDetector.cpp">
+      <Filter>src\simulation\modules</Filter>
+    </ClCompile>
+
+    <!-- Tests -->
+    <ClCompile Include="tests\test_ip_validator.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\test_mitre.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+
+    <!-- Headers (ClInclude) -->
+    <ClInclude Include="include\core\ConfigurationManager.h">
+      <Filter>include\core</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleManager.h">
-      <Filter>Core</Filter>
+    <ClInclude Include="include\core\ProductionScanner.h">
+      <Filter>include\core</Filter>
     </ClInclude>
-    <ClInclude Include="CoreEngine.h">
-      <Filter>Core</Filter>
+    <ClInclude Include="include\CoreEngine.h">
+      <Filter>include\core</Filter>
     </ClInclude>
-    <ClInclude Include="MockTarget.h">
-      <Filter>Targets</Filter>
+
+    <ClInclude Include="include\mitre\AttackMapper.h">
+      <Filter>include\mitre</Filter>
     </ClInclude>
-    <ClInclude Include="EternalBlueDetector.h">
-      <Filter>Modules\Tier 5</Filter>
+
+    <!-- Simulation includes -->
+    <ClInclude Include="include\simulation\SimulationEngine.h">
+      <Filter>include\simulation</Filter>
     </ClInclude>
-    <ClInclude Include="IExploit.h">
-      <Filter>Modules</Filter>
+    <ClInclude Include="include\simulation\APIRateLimitDetector.h">
+      <Filter>include\simulation</Filter>
     </ClInclude>
-    <ClInclude Include="BlueKeepDetector.h" />
-    <ClInclude Include="HeartbleedDetector.h" />
-    <ClInclude Include="ShellshockDetector.h" />
-    <ClInclude Include="SQLInjectionDetector.h" />
-    <ClInclude Include="SSHBruteForceDetector.h" />
-    <ClInclude Include="DirectoryTraversalDetector.h" />
-    <ClInclude Include="FTPAnonymousDetector.h" />
-    <ClInclude Include="Log4ShellDetector.h" />
-    <ClInclude Include="NetworkScanner.h" />
-    <ClInclude Include="XSSDetector.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="README.md" />
-    <None Include="PROJECT_SUMMARY.md" />
-    <None Include="todo.md" />
-    <None Include=".gitignore" />
-    <None Include=".gitattributes" />
+    <ClInclude Include="include\simulation\BlueKeepDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\CORSDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\CSRFDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\CloudMetadataDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\CommandInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\ComprehensiveScanner.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\ContainerEscapeDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\DeserializationDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\DirectoryTraversalDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\EternalBlueDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\FTPAnonymousDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\GraphQLInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\HTTPRequestSmugglingDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\HeartbleedDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\HostHeaderInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\IDORDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\IExploit.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\IModule.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\IPRangeValidator.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\JWTDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\LDAPInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\Log4ShellDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\MockTarget.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\ModuleManager.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\ModuleRegistry.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\NetworkScanner.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\NoSQLInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\OAuthOIDCDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\PrototypePollutionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\RaceConditionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\SNMPWeakCommunityDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\SQLInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\SSHBruteForceDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\SSRFDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\SSTIDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\ShellshockDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\SubdomainTakeoverDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\TelnetCleartextDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\VulnerabilityDatabase.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\VulnerabilityScanner.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\WeakCipherDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\WebSocketVulnDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\WebVulnerabilityDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\XMLInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\XPathInjectionDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\XSSDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simulation\XXEDetector.h">
+      <Filter>include\simulation</Filter>
+    </ClInclude>
+
+    <!-- Resources -->
+    <ResourceCompile Include="resources\app.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+    <None Include="resources\centipede.ico">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\centipede.png">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\resource.h">
+      <Filter>resources</Filter>
+    </None>
+
+    <!-- Docs and misc -->
+    <None Include="CMakeLists.txt">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="CMakeSettings.json">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="CHANGELOG.md">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="CODE_OF_CONDUCT.md">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="CONTRIBUTING.md">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="LICENSE">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="README.md">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="SECURITY.md">
+      <Filter>docs</Filter>
+    </None>
+
+    <!-- Root repo files -->
+    <None Include=".gitignore">
+      <Filter>docs</Filter>
+    </None>
+    <None Include=".gitattributes">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="PROJECT_SUMMARY.md">
+      <Filter>docs</Filter>
+    </None>
+    <None Include="todo.md">
+      <Filter>docs</Filter>
+    </None>
   </ItemGroup>
 </Project>
