@@ -2,6 +2,20 @@
 
 All notable changes to C3NT1P3D3 will be documented in this file.
 
+## [3.2.1]- 2025-11-04
+### Added
+- Consent logic for signing prior to undertaking scan
+- 4 new modules
+
+### Changed
+- Module count is now approx 40
+
+### Technical Notes
+- New modules have been implemented  
+  **NOTE: ONLY TESTED ON ISOLATED DEVICES USE AT OWN RISK!**
+- All modules compile successfully
+- v3.2.1 release date is unknown at this time
+
 ## [3.2.0] - 2025-01-16
 
 ### Added
