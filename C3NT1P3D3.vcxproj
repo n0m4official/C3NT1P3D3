@@ -18,6 +18,7 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -25,7 +26,9 @@
     <RootNamespace>C3NT1P3D3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
+
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -52,24 +55,18 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
+
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
+
   <PropertyGroup Label="UserMacros" />
+
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -83,6 +80,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -98,6 +96,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -111,6 +110,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -126,54 +126,171 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+
+  <!-- All source files -->
   <ItemGroup>
-    <ClCompile Include="BlueKeepDetector.cpp" />
-    <ClCompile Include="C3NT1P3D3.cpp" />
-	<ClCompile Include="C3NT1P3D3_Comprehensive.cpp" />
-    <ClCompile Include="CoreEngine.cpp" />
-    <ClCompile Include="DirectoryTraversalDetector.cpp" />
-    <ClCompile Include="EternalBlueDetector.cpp" />
-    <ClCompile Include="FTPAnonymousDetector.cpp" />
-    <ClCompile Include="HeartbleedDetector.cpp" />
-    <ClCompile Include="Log4ShellDetector.cpp" />
-    <ClCompile Include="MockTarget.cpp" />
-    <ClCompile Include="ModuleManager.cpp" />
-    <ClCompile Include="NetworkScanner.cpp" />
-    <ClCompile Include="SafeScanner.cpp" />
-    <ClCompile Include="ShellshockDetector.cpp" />
-    <ClCompile Include="SQLInjectionDetector.cpp" />
-    <ClCompile Include="SSHBruteForceDetector.cpp" />
-    <ClCompile Include="XSSDetector.cpp" />
+    <!-- top-level / src -->
+    <ClCompile Include="src\C3NT1P3D3.cpp" />
+    <ClCompile Include="src\C3NT1P3D3-Production.cpp" />
+    <ClCompile Include="src\C3NT1P3D3-Production.cpp.bak" />
+
+    <!-- core -->
+    <ClCompile Include="src\core\ConfigurationManager.cpp" />
+    <ClCompile Include="src\core\ProductionScanner.cpp" />
+    <ClCompile Include="src\core\CoreEngine.cpp" />
+
+    <!-- mitre -->
+    <ClCompile Include="src\mitre\AttackMapper.cpp" />
+
+    <!-- simulation modules and detectors -->
+    <ClCompile Include="src\simulation\SimulationEngine.cpp" />
+    <ClCompile Include="src\simulation\APIRateLimitDetector.cpp" />
+    <ClCompile Include="src\simulation\BlueKeepDetector.cpp" />
+    <ClCompile Include="src\simulation\CORSDetector.cpp" />
+    <ClCompile Include="src\simulation\CSRFDetector.cpp" />
+    <ClCompile Include="src\simulation\CloudMetadataDetector.cpp" />
+    <ClCompile Include="src\simulation\CommandInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\ComprehensiveScanner.cpp" />
+    <ClCompile Include="src\simulation\ContainerEscapeDetector.cpp" />
+    <ClCompile Include="src\simulation\DeserializationDetector.cpp" />
+    <ClCompile Include="src\simulation\DirectoryTraversalDetector.cpp" />
+    <ClCompile Include="src\simulation\EternalBlueDetector.cpp" />
+    <ClCompile Include="src\simulation\FTPAnonymousDetector.cpp" />
+    <ClCompile Include="src\simulation\GraphQLInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\HTTPRequestSmugglingDetector.cpp" />
+    <ClCompile Include="src\simulation\HeartbleedDetector.cpp" />
+    <ClCompile Include="src\simulation\HostHeaderInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\IDORDetector.cpp" />
+    <ClCompile Include="src\simulation\IPRangeValidator.cpp" />
+    <ClCompile Include="src\simulation\JWTDetector.cpp" />
+    <ClCompile Include="src\simulation\LDAPInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\Log4ShellDetector.cpp" />
+    <ClCompile Include="src\simulation\MockTarget.cpp" />
+    <ClCompile Include="src\simulation\ModuleManager.cpp" />
+    <ClCompile Include="src\simulation\ModuleRegistry.cpp" />
+    <ClCompile Include="src\simulation\NetworkScanner.cpp" />
+    <ClCompile Include="src\simulation\NoSQLInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\OAuthOIDCDetector.cpp" />
+    <ClCompile Include="src\simulation\PrototypePollutionDetector.cpp" />
+    <ClCompile Include="src\simulation\RaceConditionDetector.cpp" />
+    <ClCompile Include="src\simulation\SNMPWeakCommunityDetector.cpp" />
+    <ClCompile Include="src\simulation\SQLInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\SSHBruteForceDetector.cpp" />
+    <ClCompile Include="src\simulation\SSRFDetector.cpp" />
+    <ClCompile Include="src\simulation\SSTIDetector.cpp" />
+    <ClCompile Include="src\simulation\SafeScanner.cpp" />
+    <ClCompile Include="src\simulation\ShellshockDetector.cpp" />
+    <ClCompile Include="src\simulation\SubdomainTakeoverDetector.cpp" />
+    <ClCompile Include="src\simulation\TelnetCleartextDetector.cpp" />
+    <ClCompile Include="src\simulation\VulnerabilityDatabase.cpp" />
+    <ClCompile Include="src\simulation\WeakCipherDetector.cpp" />
+    <ClCompile Include="src\simulation\WebSocketVulnDetector.cpp" />
+    <ClCompile Include="src\simulation\XMLInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\XPathInjectionDetector.cpp" />
+    <ClCompile Include="src\simulation\XSSDetector.cpp" />
+    <ClCompile Include="src\simulation\XXEDetector.cpp" />
+
+    <!-- backups / leftovers -->
+    <ClCompile Include="src\simulation\HeartbleedDetector.cpp.bak" />
+    <ClCompile Include="src\simulation\SafeScanner.cpp.bak" />
+
+    <!-- tests -->
+    <ClCompile Include="tests\test_ip_validator.cpp" />
+    <ClCompile Include="tests\test_mitre.cpp" />
   </ItemGroup>
+
+  <!-- All header files -->
   <ItemGroup>
-    <ClInclude Include="BlueKeepDetector.h" />
-    <ClInclude Include="CoreEngine.h" />
-    <ClInclude Include="DirectoryTraversalDetector.h" />
-    <ClInclude Include="EternalBlueDetector.h" />
-    <ClInclude Include="FTPAnonymousDetector.h" />
-    <ClInclude Include="HeartbleedDetector.h" />
-    <ClInclude Include="IExploit.h" />
-    <ClInclude Include="IModule.h" />
-    <ClInclude Include="Log4ShellDetector.h" />
-    <ClInclude Include="MockTarget.h" />
-    <ClInclude Include="ModuleManager.h" />
-    <ClInclude Include="NetworkScanner.h" />
-    <ClInclude Include="ShellshockDetector.h" />
-    <ClInclude Include="SQLInjectionDetector.h" />
-    <ClInclude Include="SSHBruteForceDetector.h" />
-    <ClInclude Include="XSSDetector.h" />
+    <ClInclude Include="include\core\ConfigurationManager.h" />
+    <ClInclude Include="include\core\ProductionScanner.h" />
+    <ClInclude Include="include\CoreEngine.h" />
+
+    <ClInclude Include="include\mitre\AttackMapper.h" />
+    <ClInclude Include="include\mitre\AttackTechnique.h" />
+
+    <ClInclude Include="include\simulation\SimulationEngine.h" />
+    <ClInclude Include="include\simulation\APIRateLimitDetector.h" />
+    <ClInclude Include="include\simulation\BlueKeepDetector.h" />
+    <ClInclude Include="include\simulation\CORSDetector.h" />
+    <ClInclude Include="include\simulation\CSRFDetector.h" />
+    <ClInclude Include="include\simulation\CloudMetadataDetector.h" />
+    <ClInclude Include="include\simulation\CommandInjectionDetector.h" />
+    <ClInclude Include="include\simulation\ComprehensiveScanner.h" />
+    <ClInclude Include="include\simulation\ContainerEscapeDetector.h" />
+    <ClInclude Include="include\simulation\DeserializationDetector.h" />
+    <ClInclude Include="include\simulation\DirectoryTraversalDetector.h" />
+    <ClInclude Include="include\simulation\EternalBlueDetector.h" />
+    <ClInclude Include="include\simulation\FTPAnonymousDetector.h" />
+    <ClInclude Include="include\simulation\GraphQLInjectionDetector.h" />
+    <ClInclude Include="include\simulation\HTTPRequestSmugglingDetector.h" />
+    <ClInclude Include="include\simulation\HeartbleedDetector.h" />
+    <ClInclude Include="include\simulation\HostHeaderInjectionDetector.h" />
+    <ClInclude Include="include\simulation\IDORDetector.h" />
+    <ClInclude Include="include\simulation\IExploit.h" />
+    <ClInclude Include="include\simulation\IModule.h" />
+    <ClInclude Include="include\simulation\IPRangeValidator.h" />
+    <ClInclude Include="include\simulation\JWTDetector.h" />
+    <ClInclude Include="include\simulation\LDAPInjectionDetector.h" />
+    <ClInclude Include="include\simulation\Log4ShellDetector.h" />
+    <ClInclude Include="include\simulation\MockTarget.h" />
+    <ClInclude Include="include\simulation\ModuleManager.h" />
+    <ClInclude Include="include\simulation\ModuleRegistry.h" />
+    <ClInclude Include="include\simulation\NetworkScanner.h" />
+    <ClInclude Include="include\simulation\NoSQLInjectionDetector.h" />
+    <ClInclude Include="include\simulation\OAuthOIDCDetector.h" />
+    <ClInclude Include="include\simulation\PrototypePollutionDetector.h" />
+    <ClInclude Include="include\simulation\RaceConditionDetector.h" />
+    <ClInclude Include="include\simulation\SNMPWeakCommunityDetector.h" />
+    <ClInclude Include="include\simulation\SQLInjectionDetector.h" />
+    <ClInclude Include="include\simulation\SSHBruteForceDetector.h" />
+    <ClInclude Include="include\simulation\SSRFDetector.h" />
+    <ClInclude Include="include\simulation\SSTIDetector.h" />
+    <ClInclude Include="include\simulation\ShellshockDetector.h" />
+    <ClInclude Include="include\simulation\SubdomainTakeoverDetector.h" />
+    <ClInclude Include="include\simulation\TelnetCleartextDetector.h" />
+    <ClInclude Include="include\simulation\VulnerabilityDatabase.h" />
+    <ClInclude Include="include\simulation\VulnerabilityScanner.h" />
+    <ClInclude Include="include\simulation\WeakCipherDetector.h" />
+    <ClInclude Include="include\simulation\WebSocketVulnDetector.h" />
+    <ClInclude Include="include\simulation\WebVulnerabilityDetector.h" />
+    <ClInclude Include="include\simulation\XMLInjectionDetector.h" />
+    <ClInclude Include="include\simulation\XPathInjectionDetector.h" />
+    <ClInclude Include="include\simulation\XSSDetector.h" />
+    <ClInclude Include="include\simulation\XXEDetector.h" />
+
+    <!-- other top-level headers -->
+    <ClInclude Include="include\ConfigurationManager.h" />
+    <ClInclude Include="include\LegalAgreementManager.h" />
+    <ClInclude Include="include\ProductionScanner.h" />
+    <ClInclude Include="include\AttackMapper.h" />
+    <ClInclude Include="include\AttackTechnique.h" />
   </ItemGroup>
+
+  <!-- Resources & miscellaneous files -->
   <ItemGroup>
-    <Text Include="CMakeLists.txt" />
+    <ResourceCompile Include="resources\app.rc" />
+    <None Include="resources\centipede.ico" />
+    <None Include="resources\centipede.png" />
+    <None Include="resources\resource.h" />
   </ItemGroup>
+
+  <!-- Docs & project text files -->
   <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-    <None Include="PROJECT_SUMMARY.md" />
+    <None Include="CMakeLists.txt" />
+    <None Include="CMakeSettings.json" />
+    <None Include="CHANGELOG.md" />
+    <None Include="CODE_OF_CONDUCT.md" />
+    <None Include="CONTRIBUTING.md" />
+    <None Include="LICENSE" />
     <None Include="README.md" />
+    <None Include="SECURITY.md" />
+    <None Include=".gitignore" />
+    <None Include=".gitattributes" />
+    <None Include="PROJECT_SUMMARY.md" />
     <None Include="todo.md" />
+    <None Include="MITRE_ATTACK_SHOWCASE.md" />
   </ItemGroup>
+
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>
